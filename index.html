@@ -647,6 +647,7 @@ const AWARDS=[
 ];
 
 const NEWS=[
+ {d:"Sep 2026",t:"2026년도 HMAI 연구실 하반기 회식",ph:[{src:"news/n260918_2.jpg"},{src:"news/n260918_1.jpg"}],b:["2026년 하반기를 맞아 연구실 구성원들이 함께하는 회식 자리를 가졌습니다.","허학선 연구원(박사과정)이 Human-Marine AI 연구실의 일원이 되었습니다.","남궁호 교수가 '자율운항선박–유인선박 간 협업 충돌회피를 위한 정보교환 시스템 개발' 연구과제를 수주하였습니다."]},
  {d:"Jun 2026",t:"2026년도 해양환경안전학회 춘계학술대회",p:5,b:["'자율운항선박과 항해안전을 위한 머신러닝 응용(ML Apps for MASS and Nav Safety)' 특별세션을 개최하였습니다.","HMAI 연구실에서 총 4편의 논문이 발표되었습니다."]},
  {d:"May 2026",t:"2026 한국해양과학기술협의회 공동학술대회",p:2},
  {d:"Mar 2026",t:"Journal of Marine Science and Engineering (SCIE) 2025 우수심사자상 수상 (김주성 교수)",p:1,b:["Outstanding Reviewer Award — <a href='https://www.mdpi.com/journal/jmse/awards/3946' target='_blank' rel='noopener'>mdpi.com/journal/jmse/awards/3946</a>"]},
@@ -724,7 +725,7 @@ function renderHome(){
   const sc=INTL.filter(p=>p[3]==="SCIE").length;
   $("#stats").innerHTML=[[INTL.length,"International journals",`SCIE ${sc} · SCOPUS ${INTL.length-sc}`],[DOM.length,"Domestic journals","KCI"],[PROJECTS.length,"Research projects","2015 – present"],[AWARDS.length,"Awards","2014 – present"]].map(([n,l,s])=>`<div class="stat"><b>${n}<i>+</i></b><span>${l} · ${s}</span></div>`).join("");
   $("#fields").innerHTML=FIELDS.map(fieldCard).join("");$("#fields2").innerHTML=FIELDS.map(fieldCard).join("");
-  $("#latestNews").innerHTML=NEWS.slice(0,6).map((n,i)=>{const ph=(MEDIA.news[i]||[])[0];return `<a class="nitem" href="#news"><div class="th">${ph?`<img src="${ph.src}" alt="" loading="lazy">`:""}</div><div><div class="d">${n.d}</div><div class="t">${esc(n.t)}</div></div></a>`}).join("");
+  $("#latestNews").innerHTML=NEWS.slice(0,6).map((n,i)=>{const ph=(n._ph||[])[0];return `<a class="nitem" href="#news"><div class="th">${ph?`<img src="${ph.src}" alt="" loading="lazy">`:""}</div><div><div class="d">${n.d}</div><div class="t">${esc(n.t)}</div></div></a>`}).join("");
   $("#aboutKr").innerHTML=FIELDS.map(f=>`<li>${esc(f.t)}</li>`).join("");$("#aboutEn").innerHTML=$("#aboutKr").innerHTML;
 }
 function initials(en){return en.replace(/^(Prof\.|Dr\.|M\.Sc\.|B\.Sc\.)\s*/g,"").replace(/^Dr\.\s*/,"").split(/[\s-]+/).filter(Boolean).slice(0,2).map(p=>p[0]).join("").toUpperCase()}
@@ -760,7 +761,7 @@ function renderAwards(){
   html+=`</div></div>`;$("#awardRoot").innerHTML=html;
 }
 function renderNews(){
-  $("#newsRoot").innerHTML=NEWS.map((n,i)=>{const ph=MEDIA.news[i]||[];const cls=ph.length===1?"one":ph.length===2?"two":"";
+  $("#newsRoot").innerHTML=NEWS.map((n,i)=>{const ph=n._ph||[];const cls=ph.length===1?"one":ph.length===2?"two":"";
     const bullets=n.b?`<ul>${n.b.map(x=>Array.isArray(x)?`<ul>${x.map(y=>`<li>${esc(y)}</li>`).join("")}</ul>`:`<li>${x}</li>`).join("")}</ul>`:"";
     const photos=ph.length?`<div class="photos ${cls}">${ph.map(p=>`<div class="p" data-lb="${p.src}" data-cap="${esc(n.d)} · ${esc(n.t)}" data-grp="nw${i}"><img src="${p.src}" alt="" loading="lazy"></div>`).join("")}</div>`:"";
     return `<div class="tl"><div class="when">${n.d}</div><div><h3>${esc(n.t)}</h3>${bullets}${photos}</div></div>`}).join("");
@@ -768,6 +769,7 @@ function renderNews(){
 function show(id){if(!NAVI.some(n=>n[0]===id))id="home";document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+id));document.querySelectorAll("#nav a,#mnav a").forEach(a=>a.classList.toggle("active",a.dataset.id===id));$("#mnav").classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false");window.scrollTo(0,0);document.querySelectorAll(".view.active video").forEach(v=>v.play&&v.play().catch(()=>{}))}
 function route(){show(location.hash.replace("#","")||"home")}
 document.addEventListener("error",e=>{const t=e.target;if(!t||t.tagName!=="IMG")return;const box=t.closest(".photos .p");if(box){const g=box.parentElement;box.remove();const n=g.children.length;g.classList.remove("one","two");if(n===0)g.remove();else if(n===1)g.classList.add("one");else if(n===2)g.classList.add("two");return}const th=t.closest(".nitem .th,.award .ph");if(th&&th.classList.contains("th")){th.style.visibility="hidden";return}t.remove()},true);
+let __k=0;NEWS.forEach(n=>{n._ph=n.ph||MEDIA.news[__k++]||[]});
 renderNav();renderHome();renderPeople();renderResearch();renderPubs("intl");renderAwards();renderNews();
 $("#menuBtn").addEventListener("click",()=>{const o=$("#mnav").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",String(o))});
 $("#contactForm").addEventListener("submit",e=>{e.preventDefault();const ok=["cf-name","cf-email","cf-msg"].every(id=>$("#"+id).value.trim());const t=$("#cf-toast");t.hidden=false;t.textContent=ok?"Thank you. Sending is enabled once a form service (e.g. Formspree) is connected. For urgent enquiries please call +82-61-240-7193.":"Please fill in your name, email and comment."});
