@@ -733,7 +733,7 @@ function renderHome(){
   $("#latestNews").innerHTML=NEWS.slice(0,6).map((n,i)=>{const ph=(n._ph||[])[0];return `<a class="nitem" href="#news"><div class="th">${ph?`<img src="${ph.src}" alt="" loading="lazy">`:""}</div><div><div class="d">${n.d}</div><div class="t">${esc(n.t)}</div></div></a>`}).join("");
   $("#aboutKr").innerHTML=FIELDS.map(f=>`<li>${esc(f.t)}</li>`).join("");$("#aboutEn").innerHTML=$("#aboutKr").innerHTML;
 }
-const MPH={"Dr. Chan-Sub Lee":"people/chansub.jpg","B.Sc. Dae-Jung Kim":"people/daejung.jpg","M.Sc. Jae-Yong Lee":"people/jaeyong.jpg"};
+const MPH={"Dr. Chan-Sub Lee":"people/chan%20sub%20lee.png","B.Sc. Dae-Jung Kim":"people/dae%20jung%20kim.jpg","M.Sc. Jae-Yong Lee":"people/Jae%20yong%20lee.jpg"};
 function initials(en){return en.replace(/^(Prof\.|Dr\.|M\.Sc\.|B\.Sc\.)\s*/g,"").replace(/^Dr\.\s*/,"").split(/[\s-]+/).filter(Boolean).slice(0,2).map(p=>p[0]).join("").toUpperCase()}
 function renderPeople(){
   let html="";
@@ -774,7 +774,7 @@ function renderNews(){
 }
 function show(id){if(!NAVI.some(n=>n[0]===id))id="home";document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+id));document.querySelectorAll("#nav a,#mnav a").forEach(a=>a.classList.toggle("active",a.dataset.id===id));$("#mnav").classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false");window.scrollTo(0,0);document.querySelectorAll(".view.active video").forEach(v=>v.play&&v.play().catch(()=>{}))}
 function route(){show(location.hash.replace("#","")||"home")}
-document.addEventListener("error",e=>{const t=e.target;if(!t||t.tagName!=="IMG")return;const box=t.closest(".photos .p");if(box){const g=box.parentElement;box.remove();const n=g.children.length;g.classList.remove("one","two");if(n===0)g.remove();else if(n===1)g.classList.add("one");else if(n===2)g.classList.add("two");return}const th=t.closest(".nitem .th,.award .ph");if(th&&th.classList.contains("th")){th.style.visibility="hidden";return}t.remove()},true);
+document.addEventListener("error",e=>{const t=e.target;if(!t||t.tagName!=="IMG")return;const box=t.closest(".photos .p");if(box){const g=box.parentElement;box.remove();const n=g.children.length;g.classList.remove("one","two");if(n===0)g.remove();else if(n===1)g.classList.add("one");else if(n===2)g.classList.add("two");return}if(t.closest(".brand"))return;const th=t.closest(".nitem .th,.award .ph");if(th&&th.classList.contains("th")){th.style.visibility="hidden";return}t.remove()},true);
 let __k=0;NEWS.forEach(n=>{n._ph=n.ph||MEDIA.news[__k++]||[]});
 renderNav();renderHome();renderPeople();renderResearch();renderPubs("intl");renderAwards();renderNews();
 $("#menuBtn").addEventListener("click",()=>{const o=$("#mnav").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",String(o))});
