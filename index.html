@@ -5,183 +5,172 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="description" content="Human-Marine Autonomy Interaction Research Group, Mokpo National Maritime University">
 <title>HMAI Research Group</title>
-<link rel="icon" type="image/png" href="logo.png">
+<link rel="icon" type="image/png" href="img/logo.png">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
 <style>
 :root{
-  --bg:#ffffff; --bg2:#f5f8fb; --bg3:#eaf0f6; --panel:#ffffff;
-  --line:#e2e8f0; --line2:#cfd9e4;
-  --ink:#0f1f33; --ink2:#4a5a6d; --ink3:#8594a6;
-  --navy:#0b2c5a; --blue:#0a5cb8; --blueL:#e8f1fb; --green:#1b9332; --greenL:#e7f5ea; --cyan:#12a4c0; --amber:#c97a12;
-  --shadow:0 1px 2px rgba(15,31,51,.05),0 10px 30px -14px rgba(15,31,51,.18);
-  --shadow2:0 2px 4px rgba(15,31,51,.06),0 24px 48px -20px rgba(10,92,184,.35);
+  --bg:#06101b; --bg2:#0a1626; --bg3:#0f1f33; --panel:rgba(255,255,255,.035); --panel2:rgba(255,255,255,.07);
+  --line:rgba(126,224,239,.14); --line2:rgba(126,224,239,.32);
+  --ink:#e8f0f7; --ink2:#a3b5c8; --ink3:#66788c;
+  --cyan:#4fd1e3; --cyanL:#a5ecf5; --cyanD:#1b8ea0; --amber:#ffb454; --navy:#0b2c4d;
+  --glow:0 0 0 1px rgba(79,209,227,.25),0 20px 60px -20px rgba(79,209,227,.35);
   --fd:"Poppins","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   --fb:"Noto Sans KR","Poppins","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
-  color-scheme:light;
+  color-scheme:dark;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--fb);font-size:15.5px;line-height:1.7;-webkit-font-smoothing:antialiased}
-a{color:var(--blue);text-decoration:none}a:hover{text-decoration:underline}
-:focus-visible{outline:2px solid var(--blue);outline-offset:2px;border-radius:4px}
-h1,h2,h3,h4{font-family:var(--fd);margin:0;line-height:1.2;text-wrap:balance;letter-spacing:-.01em;color:var(--navy)}
+body{background-image:radial-gradient(1200px 600px at 80% -10%,rgba(79,209,227,.10),transparent 60%),radial-gradient(900px 500px at -10% 30%,rgba(11,79,138,.25),transparent 60%);background-attachment:fixed}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}
+:focus-visible{outline:2px solid var(--cyan);outline-offset:2px;border-radius:4px}
+h1,h2,h3,h4{font-family:var(--fd);margin:0;line-height:1.2;text-wrap:balance;letter-spacing:-.01em}
 p{margin:0}button{font:inherit;cursor:pointer;color:inherit}
 img{max-width:100%;display:block}
 .wrap{max-width:1200px;margin:0 auto;padding:0 24px}
 
 /* nav */
-.top{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(16px) saturate(160%);-webkit-backdrop-filter:blur(16px) saturate(160%);background:rgba(255,255,255,.86);border-bottom:1px solid var(--line)}
-.top::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:linear-gradient(90deg,var(--green) 0 18%,var(--blue) 18% 100%);opacity:.9}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;height:72px;gap:20px}
+.top{position:fixed;top:0;left:0;right:0;z-index:50;padding-top:env(safe-area-inset-top,0px);backdrop-filter:blur(18px) saturate(140%);-webkit-backdrop-filter:blur(18px) saturate(140%);background:rgba(6,16,27,.62);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;height:70px;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--ink)}
 .brand:hover{text-decoration:none}
-.brand .mark{width:46px;height:46px;display:grid;place-items:center}
+.brand .mark{width:44px;height:44px;border-radius:10px;background:#fff;display:grid;place-items:center;padding:4px;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
 .brand .mark img{width:100%;height:100%;object-fit:contain}
-.brand b{font-family:var(--fd);font-weight:700;font-size:21px;letter-spacing:.04em;display:block;line-height:1;color:var(--navy)}
-.brand b span{color:var(--blue)}
-.brand small{display:block;font-family:var(--fd);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:5px}
-.nav{display:flex;gap:2px}
-.nav a{font-family:var(--fd);font-weight:500;font-size:14px;color:var(--ink2);padding:8px 14px;border-radius:8px;transition:.15s;position:relative}
-.nav a:hover{color:var(--navy);background:var(--bg2);text-decoration:none}
-.nav a.active{color:var(--blue)}
-.nav a.active::after{content:"";position:absolute;left:14px;right:14px;bottom:2px;height:2px;border-radius:2px;background:var(--blue)}
-.menu-btn{display:none;border:1px solid var(--line2);background:#fff;border-radius:10px;padding:8px 12px;font-family:var(--fd);font-size:13px;align-items:center;gap:8px;color:var(--navy)}
-.mnav{display:none;flex-direction:column;padding:8px 16px 14px;border-bottom:1px solid var(--line);background:#fff}
+.brand b{font-family:var(--fd);font-weight:700;font-size:20px;letter-spacing:.04em;display:block;line-height:1}
+.brand b span{color:var(--cyan)}
+.brand small{display:block;font-family:var(--fd);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink3);margin-top:4px}
+.nav{display:flex;gap:4px}
+.nav a{font-family:var(--fd);font-weight:500;font-size:14px;color:var(--ink2);padding:8px 13px;border-radius:999px;transition:.15s}
+.nav a:hover{color:var(--ink);background:var(--panel2);text-decoration:none}
+.nav a.active{color:#04131c;background:var(--cyan)}
+.menu-btn{display:none;border:1px solid var(--line2);background:transparent;border-radius:10px;padding:8px 12px;font-family:var(--fd);font-size:13px;align-items:center;gap:8px}
+.mnav{display:none;flex-direction:column;padding:8px 16px 14px;border-bottom:1px solid var(--line);background:rgba(6,16,27,.96)}
 .mnav.open{display:flex}
 .mnav a{padding:11px 10px;border-radius:10px;color:var(--ink2);font-family:var(--fd);font-weight:500}
-.mnav a.active{color:var(--blue);background:var(--blueL)}
-main{padding-top:calc(72px + env(safe-area-inset-top,0px))}
+.mnav a.active{color:#04131c;background:var(--cyan)}
+main{padding-top:calc(70px + env(safe-area-inset-top,0px))}
 .view{display:none}.view.active{display:block}
 
 /* common */
-.eyebrow{font-family:var(--fd);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);font-weight:600;display:inline-flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:22px;height:3px;border-radius:2px;background:var(--green)}
-.h1{font-size:clamp(30px,4vw,44px);font-weight:600;margin-top:12px}
+.eyebrow{font-family:var(--fd);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);font-weight:600}
+.h1{font-size:clamp(30px,4vw,46px);font-weight:600;margin-top:10px}
 .lead{color:var(--ink2);max-width:66ch;margin-top:14px;font-size:16.5px}
-.sec{padding:76px 0 0}
-.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap;padding-bottom:14px;border-bottom:1px solid var(--line)}
-.sec-head h2{font-size:27px;font-weight:600}
+.sec{padding:72px 0 0}
+.sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;margin-bottom:28px;flex-wrap:wrap}
+.sec-head h2{font-size:28px;font-weight:600}
 .sec-head .sub{color:var(--ink2);margin-top:6px;font-size:15px}
-.sec-head .right{font-family:var(--fd);font-size:13px;color:var(--blue);font-weight:500}
-.chip{display:inline-flex;align-items:center;padding:2px 10px;border-radius:6px;font-family:var(--fd);font-size:11.5px;font-weight:500;background:var(--bg3);color:var(--ink2);white-space:nowrap}
-.chip.cy{background:var(--blueL);color:var(--blue)}
-.chip.am{background:var(--greenL);color:var(--green)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:10px;font-family:var(--fd);font-weight:600;font-size:14px;background:var(--blue);color:#fff;border:1px solid var(--blue);transition:.15s}
-.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:var(--shadow2)}
-.btn.ghost{background:#fff;color:var(--navy);border-color:var(--line2)}
-.btn.ghost:hover{box-shadow:var(--shadow)}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow)}
-.page-hero{position:relative;height:320px;overflow:hidden;background:var(--navy)}
-.page-hero img,.page-hero video{width:100%;height:100%;object-fit:cover}
-.page-hero .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(255,255,255,.96) 0%,rgba(255,255,255,.85) 38%,rgba(255,255,255,.1) 75%)}
-.page-hero .txt{position:absolute;left:0;right:0;bottom:44px}
-.page-hero::after{content:"";position:absolute;right:-120px;top:-160px;width:420px;height:420px;border-radius:50%;border:26px solid var(--green);opacity:.9;clip-path:inset(0 0 50% 0)}
+.sec-head .right{font-family:var(--fd);font-size:13px;color:var(--ink3)}
+.chip{display:inline-flex;align-items:center;padding:2px 10px;border-radius:999px;font-family:var(--fd);font-size:11.5px;font-weight:500;background:var(--panel2);color:var(--ink2);white-space:nowrap;border:1px solid transparent}
+.chip.cy{background:rgba(79,209,227,.12);color:var(--cyanL);border-color:rgba(79,209,227,.25)}
+.chip.am{background:rgba(255,180,84,.12);color:var(--amber);border-color:rgba(255,180,84,.25)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border-radius:999px;font-family:var(--fd);font-weight:600;font-size:14px;background:var(--cyan);color:#04131c;border:1px solid var(--cyan);transition:.15s}
+.btn:hover{text-decoration:none;transform:translateY(-1px);box-shadow:0 10px 30px -10px rgba(79,209,227,.6)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line2)}
+.btn.ghost:hover{box-shadow:none;background:var(--panel2)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:18px}
+.page-hero{position:relative;height:340px;overflow:hidden;border-bottom:1px solid var(--line)}
+.page-hero img,.page-hero video{width:100%;height:100%;object-fit:cover;opacity:.55}
+.page-hero .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,27,.2),rgba(6,16,27,.85) 85%,var(--bg))}
+.page-hero .txt{position:absolute;left:0;right:0;bottom:38px}
+.mono{font-family:var(--fd);font-variant-numeric:tabular-nums}
 
-/* hero */
-.hero{position:relative;height:clamp(560px,76vh,780px);overflow:hidden;background:var(--navy)}
+/* hero (home) */
+.hero{position:relative;height:clamp(560px,78vh,820px);overflow:hidden;border-bottom:1px solid var(--line)}
 .hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.hero .ov{position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.94) 34%,rgba(255,255,255,.55) 52%,rgba(255,255,255,0) 72%)}
-.hero .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(10,92,184,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(10,92,184,.07) 1px,transparent 1px);background-size:64px 64px;mask-image:linear-gradient(90deg,#000 0%,#000 40%,transparent 60%)}
-.hero .arc{position:absolute;right:-180px;top:-260px;width:620px;height:620px;border-radius:50%;border:34px solid var(--green);clip-path:inset(0 0 45% 25%);opacity:.95}
+.hero .ov{position:absolute;inset:0;background:linear-gradient(90deg,rgba(6,16,27,.92) 0%,rgba(6,16,27,.65) 45%,rgba(6,16,27,.15) 100%),linear-gradient(180deg,rgba(6,16,27,0) 60%,var(--bg) 100%)}
+.hero .grid{position:absolute;inset:0;background-image:linear-gradient(rgba(126,224,239,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(126,224,239,.06) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(60% 60% at 60% 50%,#000,transparent)}
 .hero .wrap{position:relative;height:100%;display:flex;flex-direction:column;justify-content:center}
-.hero h1{font-size:clamp(34px,5vw,60px);font-weight:700;max-width:13ch;line-height:1.08;color:var(--navy)}
-.hero h1 em{font-style:normal;background:linear-gradient(90deg,var(--blue),var(--cyan));-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .tag{margin-top:20px;color:var(--ink2);font-size:17px;max-width:48ch}
+.hero h1{font-size:clamp(34px,5.2vw,64px);font-weight:600;max-width:14ch;line-height:1.08}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero .tag{margin-top:20px;color:var(--ink2);font-size:17px;max-width:54ch}
 .hero .cta{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
-.hero .ticker{position:absolute;right:24px;bottom:92px;display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end}
-.hero .ticker span{font-family:var(--fd);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:rgba(11,44,90,.55);border:1px solid rgba(255,255,255,.35);padding:6px 12px;border-radius:999px;backdrop-filter:blur(8px)}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:16px;overflow:hidden;margin-top:-54px;position:relative;background:#fff;box-shadow:var(--shadow2)}
-.stat{padding:26px 26px 22px;border-right:1px solid var(--line);position:relative}
+.hero .ticker{position:absolute;right:24px;bottom:92px;display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+.hero .ticker span{font-family:var(--fd);font-size:11.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--cyanL);background:rgba(6,16,27,.55);border:1px solid var(--line);padding:6px 12px;border-radius:999px;backdrop-filter:blur(8px)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden;margin-top:-56px;position:relative;background:rgba(10,22,38,.8);backdrop-filter:blur(14px)}
+.stat{padding:26px 26px 22px;border-right:1px solid var(--line)}
 .stat:last-child{border-right:none}
-.stat::before{content:"";position:absolute;left:26px;top:0;width:28px;height:3px;background:var(--blue)}
-.stat:first-child::before{background:var(--green)}
-.stat b{display:block;font-family:var(--fd);font-size:38px;font-weight:600;color:var(--navy);line-height:1;font-variant-numeric:tabular-nums}
-.stat b i{font-style:normal;color:var(--blue);font-size:22px;margin-left:2px}
+.stat b{display:block;font-family:var(--fd);font-size:38px;font-weight:600;color:var(--ink);line-height:1;font-variant-numeric:tabular-nums}
+.stat b i{font-style:normal;color:var(--cyan);font-size:22px;margin-left:2px}
 .stat span{display:block;margin-top:8px;font-size:13px;color:var(--ink2)}
 
 /* field cards */
-.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.fcard{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:pointer;transition:.25s;box-shadow:var(--shadow);display:flex;flex-direction:column}
-.fcard .imw{aspect-ratio:4/3;overflow:hidden;background:var(--bg3)}
-.fcard img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.fields{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.fcard{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:3/4;border:1px solid var(--line);background:var(--bg3);cursor:pointer;transition:.25s}
+.fcard img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;filter:saturate(.9)}
 .fcard:hover img{transform:scale(1.06)}
-.fcard:hover{box-shadow:var(--shadow2);border-color:#bcd3ec;transform:translateY(-3px)}
-.fcard .ov{display:none}
-.fcard .txt{padding:18px 20px 22px}
-.fcard .n{font-family:var(--fd);font-size:12px;color:var(--green);letter-spacing:.14em;font-weight:600}
-.fcard h3{font-size:17.5px;margin-top:6px;font-weight:600}
-.fcard p{color:var(--ink2);font-size:13.5px;margin-top:8px;line-height:1.55}
+.fcard:hover{box-shadow:var(--glow);border-color:var(--line2)}
+.fcard .ov{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,16,27,0) 30%,rgba(6,16,27,.92) 100%)}
+.fcard .txt{position:absolute;left:20px;right:20px;bottom:20px}
+.fcard .n{font-family:var(--fd);font-size:12px;color:var(--cyan);letter-spacing:.14em}
+.fcard h3{font-size:19px;margin-top:6px;font-weight:600}
+.fcard p{color:var(--ink2);font-size:13px;margin-top:6px;line-height:1.5}
 
 /* split */
-.band{background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:76px;padding:64px 0}
-.split{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center}
-.split .media{border-radius:18px;overflow:hidden;aspect-ratio:16/10;max-width:100%;box-shadow:var(--shadow2)}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:36px;align-items:center}
+.split .media{border-radius:20px;overflow:hidden;border:1px solid var(--line);aspect-ratio:16/10;max-width:100%}
 .split .media img{width:100%;height:100%;object-fit:cover}
-.split h2{font-size:31px;font-weight:600;margin-top:10px}
+.split h2{font-size:32px;font-weight:600}
 .split p{color:var(--ink2);margin-top:14px}
 .pill-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
 
-/* news list */
+/* news list (home) */
 .nlist{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.nitem{display:grid;grid-template-columns:128px 1fr;gap:16px;padding:12px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);align-items:center;transition:.15s}
-.nitem:hover{text-decoration:none;box-shadow:var(--shadow);border-color:#bcd3ec}
+.nitem{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:12px;border-radius:14px;border:1px solid var(--line);background:var(--panel);color:var(--ink);align-items:center;transition:.15s}
+.nitem:hover{background:var(--panel2);text-decoration:none;border-color:var(--line2)}
 .nitem .th{aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--bg3)}
 .nitem .th img{width:100%;height:100%;object-fit:cover}
-.nitem .d{font-family:var(--fd);font-size:12px;color:var(--blue);letter-spacing:.08em;font-weight:600}
+.nitem .d{font-family:var(--fd);font-size:12px;color:var(--cyan);letter-spacing:.08em}
 .nitem .t{font-weight:500;margin-top:4px;line-height:1.45;font-size:14.5px}
-.recruit{margin-top:76px;padding:40px;border-radius:18px;background:linear-gradient(120deg,var(--navy),#0a4a94 60%,var(--blue));color:#fff;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden}
-.recruit::after{content:"";position:absolute;right:-90px;bottom:-200px;width:360px;height:360px;border-radius:50%;border:22px solid var(--green);opacity:.9}
-.recruit h3{font-size:24px;font-weight:600;color:#fff}
-.recruit p{color:rgba(255,255,255,.8);margin-top:8px;max-width:60ch}
-.recruit .btn{background:#fff;color:var(--navy);border-color:#fff;position:relative;z-index:1}
+.recruit{margin-top:72px;padding:40px;border-radius:22px;border:1px solid rgba(79,209,227,.3);background:linear-gradient(120deg,rgba(79,209,227,.12),rgba(11,44,77,.35));display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+.recruit h3{font-size:24px;font-weight:600}
+.recruit p{color:var(--ink2);margin-top:8px;max-width:60ch}
 
 /* about */
-.two{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .two .card{padding:30px}
-.two h3{font-family:var(--fd);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
-.two p{line-height:1.85}
+.two h3{font-family:var(--fd);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--cyan);margin-bottom:14px}
+.two p{color:var(--ink);line-height:1.85}
 .two ul{margin:14px 0 0;padding-left:18px;color:var(--ink2)}
-.goal{padding:32px 36px;border-radius:16px;border:1px solid #cfe6d5;background:linear-gradient(120deg,var(--greenL),#fff);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
-.goal .k{font-family:var(--fd);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-weight:700}
-.goal p{font-size:19px;line-height:1.6;color:var(--navy);font-weight:500}
-.figure{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:zoom-in;box-shadow:var(--shadow)}
+.goal{padding:34px 38px;border-radius:20px;border:1px solid rgba(255,180,84,.3);background:linear-gradient(120deg,rgba(255,180,84,.08),transparent);display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
+.goal .k{font-family:var(--fd);font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--amber)}
+.goal p{font-size:19px;line-height:1.6;color:var(--ink)}
+.figure{border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:zoom-in}
 .figure img{width:100%}
 .figcap{color:var(--ink3);font-size:13px;margin-top:10px}
 .affil{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.affil .card{padding:20px;border-top:3px solid var(--blue)}
-.affil b{display:block;font-family:var(--fd);font-size:13px;color:var(--navy);font-weight:600;margin-bottom:6px}
+.affil .card{padding:20px}
+.affil b{display:block;font-family:var(--fd);font-size:13px;color:var(--cyanL);font-weight:600;margin-bottom:6px}
 .affil span{font-size:14px;color:var(--ink2)}
-.doc{display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:14px;border:1px solid var(--line);background:#fff;color:var(--ink);box-shadow:var(--shadow)}
-.doc:hover{text-decoration:none;border-color:#bcd3ec}
-.doc .ico{width:44px;height:44px;border-radius:10px;background:var(--blueL);display:grid;place-items:center;color:var(--blue);flex:none}
-.doc b{display:block;font-family:var(--fd);font-weight:600;color:var(--navy)}
+.doc{display:flex;align-items:center;gap:16px;padding:18px 22px;border-radius:16px;border:1px solid var(--line);background:var(--panel);color:var(--ink)}
+.doc:hover{background:var(--panel2);text-decoration:none}
+.doc .ico{width:44px;height:44px;border-radius:10px;background:rgba(79,209,227,.12);display:grid;place-items:center;color:var(--cyan);flex:none}
+.doc b{display:block;font-family:var(--fd);font-weight:600}
 .doc span{font-size:13px;color:var(--ink3)}
 
 /* people */
-.group{margin-top:48px}
-.group h2{font-size:20px;font-weight:600;display:flex;align-items:center;gap:12px;margin-bottom:18px}
-.group h2::before{content:"";width:4px;height:20px;border-radius:2px;background:var(--green)}
+.group{margin-top:44px}
+.group h2{font-size:20px;font-weight:600;display:flex;align-items:center;gap:12px;margin-bottom:16px}
 .group h2 .cnt{font-family:var(--fd);font-size:12px;color:var(--ink3);font-weight:500;letter-spacing:.08em}
 .group h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.advisors{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.adv{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:.2s;box-shadow:var(--shadow)}
-.adv:hover{box-shadow:var(--shadow2);transform:translateY(-3px)}
-.adv .ph{aspect-ratio:3/4;background:linear-gradient(180deg,#f4f7fa,#e3eaf2);overflow:hidden}
+.advisors{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.adv{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:.2s}
+.adv:hover{border-color:var(--line2);box-shadow:var(--glow)}
+.adv .ph{aspect-ratio:3/4;background:linear-gradient(180deg,#f2f5f8,#dfe6ee);overflow:hidden}
 .adv .ph img{width:100%;height:100%;object-fit:cover;object-position:top}
-.adv .b{padding:18px 18px 20px;border-top:3px solid var(--blue)}
-.adv .role{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600}
-.adv .kr{font-size:20px;font-weight:700;letter-spacing:.08em;margin-top:4px;color:var(--navy)}
+.adv .b{padding:18px 18px 20px}
+.adv .role{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
+.adv .kr{font-size:20px;font-weight:700;letter-spacing:.08em;margin-top:4px}
 .adv .en{font-family:var(--fd);font-size:13px;color:var(--ink2)}
 .adv dl{margin:12px 0 0;font-size:13px;display:grid;grid-template-columns:auto 1fr;gap:3px 10px}
 .adv dt{color:var(--ink3);font-family:var(--fd);font-size:11px}
 .adv dd{margin:0;color:var(--ink2)}
 .adv .links{margin-top:12px;display:flex;gap:6px;flex-wrap:wrap}
-.adv .links a,.person .links a{font-family:var(--fd);font-size:11px;padding:4px 10px;border-radius:6px;background:var(--blueL);color:var(--blue)}
+.adv .links a,.person .links a{font-family:var(--fd);font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid var(--line2);color:var(--cyanL)}
 .people{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-.person{display:grid;grid-template-columns:60px 1fr;gap:14px;padding:16px;border-radius:14px;border:1px solid var(--line);background:#fff}
-.person .av{width:60px;height:60px;border-radius:12px;background:linear-gradient(145deg,var(--blueL),#d7e6f7);display:grid;place-items:center;font-family:var(--fd);font-weight:600;color:var(--blue);font-size:17px}
-.person .role{font-family:var(--fd);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);font-weight:600}
-.person .kr{font-size:16.5px;font-weight:700;letter-spacing:.06em;color:var(--navy)}
+.person{display:grid;grid-template-columns:64px 1fr;gap:14px;padding:16px;border-radius:16px;border:1px solid var(--line);background:var(--panel)}
+.person .av{width:64px;height:64px;border-radius:14px;background:linear-gradient(145deg,rgba(79,209,227,.25),rgba(11,44,77,.6));display:grid;place-items:center;font-family:var(--fd);font-weight:600;color:var(--cyanL);font-size:18px}
+.person .role{font-family:var(--fd);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan)}
+.person .kr{font-size:17px;font-weight:700;letter-spacing:.06em}
 .person .en{font-family:var(--fd);font-size:12.5px;color:var(--ink2);margin-left:6px}
 .person dl{margin:8px 0 0;font-size:12.5px;display:grid;grid-template-columns:auto 1fr;gap:2px 10px}
 .person dt{color:var(--ink3);font-family:var(--fd);font-size:11px}
@@ -189,22 +178,21 @@ main{padding-top:calc(72px + env(safe-area-inset-top,0px))}
 .person .links{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
 
 /* research */
-.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.gallery{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
 .gallery.three{grid-template-columns:repeat(3,1fr)}
-.gitem{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;cursor:zoom-in;transition:.2s;box-shadow:var(--shadow)}
-.gitem:hover{box-shadow:var(--shadow2);transform:translateY(-3px)}
-.gitem .im{aspect-ratio:16/9;overflow:hidden;background:var(--navy)}
+.gitem{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--bg3);cursor:zoom-in;transition:.2s}
+.gitem:hover{border-color:var(--line2);box-shadow:var(--glow)}
+.gitem .im{aspect-ratio:16/9;overflow:hidden}
 .gitem .im img{width:100%;height:100%;object-fit:cover;transition:transform .6s}
 .gitem:hover .im img{transform:scale(1.04)}
 .gitem .b{padding:16px 18px 18px}
-.gitem .k{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--green);font-weight:600}
+.gitem .k{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan)}
 .gitem h3{font-size:16px;font-weight:600;margin-top:4px}
 .gitem p{font-size:13px;color:var(--ink2);margin-top:6px;line-height:1.5}
-.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--shadow)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:16px;background:var(--panel)}
 table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:680px}
-th{font-family:var(--fd);text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#fff;padding:12px 16px;font-weight:600;background:var(--navy)}
+th{font-family:var(--fd);text-align:left;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink3);padding:12px 16px;border-bottom:1px solid var(--line);font-weight:600;background:rgba(255,255,255,.02)}
 td{padding:12px 16px;border-bottom:1px solid var(--line);vertical-align:top}
-tr:nth-child(even) td{background:var(--bg2)}
 tr:last-child td{border-bottom:none}
 td.n{color:var(--ink3);font-family:var(--fd);width:48px}
 td.dur{white-space:nowrap;font-family:var(--fd);color:var(--ink2);font-size:12.5px}
@@ -212,12 +200,12 @@ td.org{color:var(--ink2)}
 
 /* publications */
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
-.tabs button{padding:9px 16px;border-radius:10px;border:1px solid var(--line2);background:#fff;color:var(--ink2);font-family:var(--fd);font-size:13px;font-weight:500}
-.tabs button.active{background:var(--navy);border-color:var(--navy);color:#fff}
+.tabs button{padding:9px 16px;border-radius:999px;border:1px solid var(--line2);background:transparent;color:var(--ink2);font-family:var(--fd);font-size:13px;font-weight:500}
+.tabs button.active{background:var(--cyan);border-color:var(--cyan);color:#04131c}
 .pub{display:grid;grid-template-columns:44px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
 .pub .num{font-family:var(--fd);color:var(--ink3);font-size:12.5px;padding-top:3px}
 .pub .t{font-weight:500;line-height:1.55}
-.pub .t a{color:var(--navy)}
+.pub .t a{color:var(--ink)}
 .pub .m{margin-top:6px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:12.5px;color:var(--ink2)}
 .pub .m .j{font-style:italic}
 .plain{margin:0;padding:0;list-style:none}
@@ -225,35 +213,35 @@ td.org{color:var(--ink2)}
 .plain li .y{font-family:var(--fd);font-size:12px;color:var(--ink3);white-space:nowrap}
 
 /* awards */
-.ygroup{margin-top:40px}
-.ygroup h2{font-family:var(--fd);font-size:38px;font-weight:700;color:var(--blueL);-webkit-text-stroke:1.2px var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:16px}
+.ygroup{margin-top:36px}
+.ygroup h2{font-family:var(--fd);font-size:40px;font-weight:600;color:transparent;-webkit-text-stroke:1px rgba(165,236,245,.5);margin-bottom:16px;display:flex;align-items:center;gap:16px}
 .ygroup h2::after{content:"";flex:1;height:1px;background:var(--line)}
-.awards{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.award{border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#fff;transition:.2s;display:flex;flex-direction:column;box-shadow:var(--shadow)}
-.award:hover{box-shadow:var(--shadow2);transform:translateY(-3px)}
-.award .ph{aspect-ratio:4/5;background:var(--bg3);overflow:hidden;position:relative;cursor:zoom-in;display:grid;grid-auto-flow:column;gap:2px}
-.award .ph img{width:100%;height:100%;object-fit:contain;background:var(--bg3)}
-.award .b{padding:14px 16px 16px;border-top:3px solid var(--green)}
-.award .d{font-family:var(--fd);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);font-weight:600}
-.award .t{font-weight:500;font-size:14px;margin-top:4px;line-height:1.5;color:var(--navy)}
+.awards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.award{border-radius:18px;overflow:hidden;border:1px solid var(--line);background:var(--panel);transition:.2s;display:flex;flex-direction:column}
+.award:hover{border-color:var(--line2);box-shadow:var(--glow)}
+.award .ph{aspect-ratio:4/5;background:#0d1a2a;overflow:hidden;position:relative;cursor:zoom-in;display:grid;grid-auto-flow:column;gap:2px}
+.award .ph img{width:100%;height:100%;object-fit:contain;background:#0d1a2a}
+.award .b{padding:14px 16px 16px}
+.award .d{font-family:var(--fd);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--amber)}
+.award .t{font-weight:500;font-size:14px;margin-top:4px;line-height:1.5}
 .award .who{font-size:12.5px;color:var(--ink2);margin-top:4px}
 
 /* news */
+.timeline{position:relative}
 .tl{display:grid;grid-template-columns:150px 1fr;gap:28px;padding:34px 0;border-bottom:1px solid var(--line)}
-.tl .when{font-family:var(--fd);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700;padding-top:4px;position:relative;padding-left:16px}
-.tl .when::before{content:"";position:absolute;left:0;top:10px;width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 4px var(--greenL)}
+.tl .when{font-family:var(--fd);font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--cyan);font-weight:600;padding-top:4px}
 .tl h3{font-size:19px;font-weight:600}
 .tl ul{margin:12px 0 0;padding-left:18px;color:var(--ink2);font-size:14.5px}
 .tl ul ul{margin-top:4px;font-size:13.5px}
 .photos{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:16px}
 .photos.one{grid-template-columns:minmax(0,520px)}
 .photos.two{grid-template-columns:repeat(2,minmax(0,300px))}
-.photos .p{aspect-ratio:4/3;border-radius:10px;overflow:hidden;background:var(--bg3);cursor:zoom-in;border:1px solid var(--line)}
+.photos .p{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--bg3);cursor:zoom-in;border:1px solid var(--line)}
 .photos .p img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
 .photos .p:hover img{transform:scale(1.05)}
 
 /* contact */
-.contact{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:28px}
 .contact .card{padding:28px}
 .contact h3{font-size:18px;font-weight:600;margin-bottom:14px}
 .contact dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:14.5px}
@@ -261,31 +249,29 @@ td.org{color:var(--ink2)}
 .contact dd{margin:0}
 form{display:flex;flex-direction:column;gap:12px}
 label{font-size:12.5px;color:var(--ink2);font-family:var(--fd);display:flex;flex-direction:column;gap:6px}
-input,textarea{font:inherit;padding:12px 14px;border:1px solid var(--line2);border-radius:10px;background:var(--bg2);color:var(--ink);width:100%}
-input:focus,textarea:focus{background:#fff;border-color:var(--blue);outline:none;box-shadow:0 0 0 3px var(--blueL)}
+input,textarea{font:inherit;padding:12px 14px;border:1px solid var(--line2);border-radius:12px;background:rgba(255,255,255,.04);color:var(--ink);width:100%}
 textarea{min-height:130px;resize:vertical}
 .note{font-size:12.5px;color:var(--ink3)}
-.toast{padding:12px 14px;border-radius:10px;background:var(--blueL);color:var(--blue);font-size:13.5px}
-.mapcard{border-radius:16px;overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:16/9;max-width:100%;box-shadow:var(--shadow)}
-.mapcard img{width:100%;height:100%;object-fit:cover}
+.toast{padding:12px 14px;border-radius:12px;background:rgba(79,209,227,.12);color:var(--cyanL);font-size:13.5px;border:1px solid rgba(79,209,227,.3)}
+.mapcard{border-radius:20px;overflow:hidden;border:1px solid var(--line);position:relative;aspect-ratio:16/9;max-width:100%}
+.mapcard img{width:100%;height:100%;object-fit:cover;opacity:.9}
 .mapcard .btn{position:absolute;right:16px;bottom:16px}
 
-footer{margin-top:96px;background:var(--navy);color:#fff;padding:40px 0 48px;position:relative;overflow:hidden}
-footer::before{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:linear-gradient(90deg,var(--green) 0 18%,var(--blue) 18% 100%)}
+footer{margin-top:90px;border-top:1px solid var(--line);padding:36px 0 48px;background:rgba(0,0,0,.25)}
 footer .wrap{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;align-items:center}
 footer .l{display:flex;align-items:center;gap:14px}
-footer .l .mark{width:48px;height:48px;background:#fff;border-radius:10px;padding:4px}
+footer .l .mark{width:40px;height:40px;background:#fff;border-radius:10px;padding:4px}
 footer .l .mark img{width:100%;height:100%;object-fit:contain}
-footer b{color:#fff}
-footer small{display:block;color:rgba(255,255,255,.6);font-size:12.5px}
+footer small{display:block;color:var(--ink3);font-size:12.5px}
 footer .links{display:flex;gap:16px;flex-wrap:wrap;font-family:var(--fd);font-size:13px}
-footer .links a{color:rgba(255,255,255,.75)}
+footer .links a{color:var(--ink2)}
 
-.lb{position:fixed;inset:0;z-index:100;background:rgba(8,20,36,.92);display:none;align-items:center;justify-content:center;padding:24px}
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:100;background:rgba(3,9,16,.94);display:none;align-items:center;justify-content:center;padding:24px}
 .lb.open{display:flex}
-.lb img{max-width:min(96vw,1500px);max-height:84vh;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.5);background:#fff}
-.lb .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:#dfe8f2;font-size:13.5px;padding:0 24px}
-.lb button{position:absolute;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);color:#fff;width:46px;height:46px;border-radius:50%;font-size:20px;display:grid;place-items:center}
+.lb img{max-width:min(96vw,1500px);max-height:84vh;object-fit:contain;border-radius:10px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
+.lb .cap{position:absolute;left:0;right:0;bottom:22px;text-align:center;color:var(--ink2);font-size:13.5px;padding:0 24px}
+.lb button{position:absolute;background:rgba(255,255,255,.08);border:1px solid var(--line2);color:var(--ink);width:46px;height:46px;border-radius:50%;font-size:20px;display:grid;place-items:center}
 .lb .x{top:22px;right:22px}.lb .pv{left:18px;top:50%;transform:translateY(-50%)}.lb .nx{right:18px;top:50%;transform:translateY(-50%)}
 
 @media (max-width:1000px){
@@ -293,44 +279,22 @@ footer .links a{color:rgba(255,255,255,.75)}
   .fields{grid-template-columns:repeat(2,1fr)}.split{grid-template-columns:1fr}.two,.contact{grid-template-columns:1fr}
   .affil,.advisors,.awards{grid-template-columns:repeat(2,1fr)}.people{grid-template-columns:1fr 1fr}.gallery.three{grid-template-columns:repeat(2,1fr)}
   .nlist{grid-template-columns:1fr}.photos{grid-template-columns:repeat(3,1fr)}
-  .hero .ov{background:linear-gradient(90deg,#fff 0%,rgba(255,255,255,.92) 55%,rgba(255,255,255,.4) 100%)}
 }
 @media (max-width:820px){
   .nav{display:none}.menu-btn{display:flex}
-  .hero{height:auto;min-height:520px;padding:80px 0 110px}.hero .ticker{position:relative;left:auto;right:auto;bottom:auto;justify-content:flex-start;padding:0 24px;margin:26px auto 0;max-width:1200px;gap:6px}.hero .ticker span{font-size:10.5px;padding:5px 10px}.hero .arc{display:none}
-  .hero .ov{background:rgba(255,255,255,.88)}
+  .hero{height:auto;min-height:520px;padding:90px 0 110px}.hero .ticker{left:24px;justify-content:flex-start}
   .tl{grid-template-columns:1fr;gap:10px;padding:26px 0}
   .fields,.gallery,.gallery.three,.people,.awards,.advisors{grid-template-columns:1fr}
   .photos,.photos.two{grid-template-columns:repeat(2,1fr)}.photos.one{grid-template-columns:1fr}
-  .goal{grid-template-columns:1fr}.page-hero{height:240px}.page-hero::after{display:none}.sec{padding-top:56px}.stats{margin-top:-30px}
+  .goal{grid-template-columns:1fr}.page-hero{height:260px}.sec{padding-top:56px}.stats{margin-top:-30px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
-
-/* quick links */
-.qlinks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px}
-.ql{position:relative;display:flex;align-items:center;gap:20px;padding:26px 26px;border-radius:16px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);color:var(--navy);overflow:hidden;transition:.2s}
-.ql:hover{text-decoration:none;transform:translateY(-3px);box-shadow:var(--shadow2);border-color:#bcd3ec}
-.ql::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--c,var(--blue))}
-.ql .ic{flex:none;width:60px;height:60px;border-radius:14px;display:grid;place-items:center;background:var(--cl,var(--blueL));color:var(--c,var(--blue))}
-.ql .ic svg{width:30px;height:30px}
-.ql .k{font-family:var(--fd);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--c,var(--blue));font-weight:600}
-.ql b{display:block;font-family:var(--fd);font-size:19px;font-weight:600;margin-top:2px;line-height:1.25}
-.ql span.s{display:block;font-size:13px;color:var(--ink2);margin-top:4px}
-.ql .go{margin-left:auto;flex:none;width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:var(--bg2);color:var(--navy);transition:.2s}
-.ql:hover .go{background:var(--c,var(--blue));color:#fff}
-@media (max-width:1000px){.qlinks{grid-template-columns:1fr}}
-.brand .mmu{height:46px;width:auto;display:block}.brand .hmai{height:68px;width:auto;display:block;margin:-6px -14px -6px -14px}.brand .bsep{width:1px;height:34px;background:var(--line2);margin:0 2px}
-.person .av{overflow:hidden}
-.person .av img{width:100%;height:100%;object-fit:cover;object-position:center 18%}
-.person{grid-template-columns:72px 1fr}.person .av{width:72px;height:88px}
-@media (max-width:820px){.brand .mmu{height:30px}.brand .hmai{height:46px;margin:-6px -10px}}
-.photos.cover{grid-template-columns:minmax(0,280px)}.photos.cover .p{aspect-ratio:auto}.photos.cover .p img{height:auto}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
-    <a class="brand" href="#home" aria-label="Mokpo National Maritime University · Human-Marine Autonomy Interaction Research Group"><img class="mmu" src="MMU_logo.png" alt="Mokpo National Maritime University"><span class="bsep"></span><img class="hmai" src="HMAI_logo.png" alt="Human-Marine Autonomy Interaction Research Group"></a>
+    <a class="brand" href="#home"><span class="mark"><img src="img/logo.png" alt="HMAI mark"></span><span><b>HM<span>AI</span></b><small>Human-Marine Autonomy Interaction</small></span></a>
     <nav class="nav" id="nav" aria-label="Main menu"></nav>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="mnav"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>Menu</button>
   </div>
@@ -341,9 +305,9 @@ footer .links a{color:rgba(255,255,255,.75)}
 <!-- HOME -->
 <section class="view" id="view-home">
   <div class="hero">
-    <img class="poster" src="themes/01.jpg" alt="">
-    <video autoplay muted loop playsinline poster="themes/01.jpg"><source src="video/hero.mp4" type="video/mp4"></video>
-    <div class="ov"></div><div class="grid"></div><div class="arc"></div>
+    <img class="poster" src="img/themes/01.jpg" alt="">
+    <video autoplay muted loop playsinline poster="img/themes/01.jpg"><source src="video/hero.mp4" type="video/mp4"></video>
+    <div class="grid"></div><div class="ov"></div>
     <div class="wrap">
       <div class="eyebrow">Mokpo National Maritime University</div>
       <h1 style="margin-top:14px">Human-Marine <em>Autonomy</em> Interaction Research Group</h1>
@@ -352,21 +316,16 @@ footer .links a{color:rgba(255,255,255,.75)}
     </div>
     <div class="ticker"><span>AIS big data</span><span>COLREGs</span><span>VTS</span><span>MASS</span></div>
   </div>
-  <div class="wrap"><div class="stats" id="stats"></div>
-    <div class="qlinks">
-      <a class="ql" style="--c:#0f1f33;--cl:#eef1f5" href="https://infrequent-cheese-08d.notion.site/Human-Marine-Autonomy-Interaction-Research-Group-73f46d6e29604bcd816036b22758a3a1" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A1.5 1.5 0 0 1 5.5 4H13l7 7v7.5A1.5 1.5 0 0 1 18.5 20h-13A1.5 1.5 0 0 1 4 18.5z"/><path d="M8 9v7M8 9l6 7V9"/></svg></span><span><span class="k">Notion</span><b>HMAI Seminar &amp; Lecture</b><span class="s">HMAI lab course notes &amp; resources</span></span><span class="go">↗</span></a>
-      <a class="ql" style="--c:#1b9332;--cl:#e7f5ea" href="https://www.mmu.ac.kr/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10l9-5 9 5-9 5z"/><path d="M7 12v4c0 1.5 2.2 3 5 3s5-1.5 5-3v-4"/><path d="M21 10v5"/></svg></span><span><span class="k">University</span><b>MMU</b><span class="s">Mokpo National Maritime University</span></span><span class="go">↗</span></a>
-      <a class="ql" style="--c:#0a5cb8;--cl:#e8f1fb" href="https://scholar.google.co.kr/" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.3-4.3"/><path d="M8.5 11h5M11 8.5v5"/></svg></span><span><span class="k">Research</span><b>Google Scholar</b><span class="s">Search academic literature</span></span><span class="go">↗</span></a>
-    </div></div>
+  <div class="wrap"><div class="stats" id="stats"></div></div>
 
   <div class="wrap sec">
     <div class="sec-head"><div><h2>Research Fields</h2><p class="sub">Four directions, one goal: safer and more efficient ship operation.</p></div><a class="right" href="#research">All research →</a></div>
     <div class="fields" id="fields"></div>
   </div>
 
-  <div class="band"><div class="wrap">
+  <div class="wrap sec">
     <div class="split">
-      <div class="media"><img src="themes/02.jpg" alt="Navigator and autonomy working together" loading="lazy"></div>
+      <div class="media"><img src="img/themes/02.jpg" alt="Navigator and autonomy working together" loading="lazy"></div>
       <div>
         <div class="eyebrow">Human in the loop</div>
         <h2 style="margin-top:10px">Algorithms that learn from the navigator and the VTS operator</h2>
@@ -375,9 +334,9 @@ footer .links a{color:rgba(255,255,255,.75)}
         <div style="margin-top:22px"><a class="btn ghost" href="#about">About the group</a></div>
       </div>
     </div>
-  </div></div>
+  </div>
 
-  <div class="wrap sec" style="padding-top:64px">
+  <div class="wrap sec">
     <div class="sec-head"><div><h2>Latest News</h2></div><a class="right" href="#news">All news →</a></div>
     <div class="nlist" id="latestNews"></div>
     <div class="recruit">
@@ -389,7 +348,7 @@ footer .links a{color:rgba(255,255,255,.75)}
 
 <!-- ABOUT -->
 <section class="view" id="view-about">
-  <div class="page-hero"><img src="campus.jpg" alt="Mokpo National Maritime University campus and training ship"><div class="ov"></div>
+  <div class="page-hero"><img src="img/campus.jpg" alt="Mokpo National Maritime University campus and training ship"><div class="ov"></div>
     <div class="txt"><div class="wrap"><div class="eyebrow">About us</div><h1 class="h1">About the Group</h1></div></div></div>
   <div class="wrap sec" style="padding-top:44px">
     <div class="goal"><div class="k">Goal</div><p>To build a human-centred human–machine marine research environment by developing algorithms that learn the experiential knowledge of navigators and VTS operators.</p></div>
@@ -400,7 +359,7 @@ footer .links a{color:rgba(255,255,255,.75)}
   </div></div>
   <div class="wrap sec">
     <div class="sec-head"><div><h2>Research Field Overview</h2><p class="sub">From navigation-data collection to route planning and collision avoidance for VTS.</p></div></div>
-    <div class="figure" data-lb="research-field.jpg" data-cap="HMAI research field overview"><img src="research-field.jpg" alt="HMAI research field overview" loading="lazy"></div>
+    <div class="figure" data-lb="img/research-field.jpg" data-cap="HMAI research field overview"><img src="img/research-field.jpg" alt="HMAI research field overview" loading="lazy"></div>
     <p class="figcap">Click to enlarge.</p>
   </div>
   <div class="wrap sec">
@@ -423,7 +382,7 @@ footer .links a{color:rgba(255,255,255,.75)}
 
 <!-- RESEARCH -->
 <section class="view" id="view-research">
-  <div class="page-hero"><video autoplay muted loop playsinline poster="methods/01.jpg"><source src="video/loop.mp4" type="video/mp4"></video><div class="ov"></div>
+  <div class="page-hero"><video autoplay muted loop playsinline poster="img/methods/01.jpg"><source src="video/loop.mp4" type="video/mp4"></video><div class="ov"></div>
     <div class="txt"><div class="wrap"><div class="eyebrow">Research</div><h1 class="h1">Research &amp; Projects</h1></div></div></div>
   <div class="wrap sec" style="padding-top:44px"><div class="fields" id="fields2"></div></div>
   <div class="wrap sec">
@@ -442,13 +401,13 @@ footer .links a{color:rgba(255,255,255,.75)}
 
 <!-- PUBLICATIONS -->
 <section class="view" id="view-publications">
-  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Publications</div><h1 class="h1">Publications</h1><p class="lead">31 international journal papers (SCIE 24 · SCOPUS 7), 25 domestic journal papers (KCI), 4 textbooks, 7 patents and 1 registered program.</p></div>
+  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Publications</div><h1 class="h1">Publications</h1><p class="lead">29 international journal papers (SCIE 22 · SCOPUS 7), 23 domestic journal papers (KCI), 3 textbooks, 7 patents and 1 registered program.</p></div>
   <div class="wrap sec" style="padding-top:36px"><div class="tabs" id="pubTabs" role="tablist"></div><div id="pubRoot"></div></div>
 </section>
 
 <!-- AWARDS -->
 <section class="view" id="view-awards">
-  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Award</div><h1 class="h1">Awards</h1><p class="lead">23 awards since 2014, including best paper and best presentation awards at domestic and international conferences and journal outstanding reviewer awards.</p></div>
+  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Award</div><h1 class="h1">Awards</h1><p class="lead">22 awards since 2014, including best paper and best presentation awards at domestic and international conferences and journal outstanding reviewer awards.</p></div>
   <div class="wrap" id="awardRoot"></div>
 </section>
 
@@ -467,7 +426,7 @@ footer .links a{color:rgba(255,255,255,.75)}
         <dt>Address</dt><dd>91 Haeyangdaehak-ro, Mokpo-si, Jeollanam-do 58628, Republic of Korea<br>Room #6315, No.2 Engineering Bldg., Mokpo National Maritime University</dd>
         <dt>Tel</dt><dd>+82-61-240-7193 (Prof. Joo-Sung Kim)</dd>
         <dt>Office</dt><dd>Room #6413, No.2 Engineering Bldg.</dd></dl></div>
-      <div class="mapcard" style="margin-top:16px"><img src="campus.jpg" alt="Campus" loading="lazy"><a class="btn" href="https://www.google.com/maps?q=34.7918033,126.3651007&z=17" target="_blank" rel="noopener">Open in Google Maps</a></div>
+      <div class="mapcard" style="margin-top:16px"><img src="img/campus.jpg" alt="Campus" loading="lazy"><a class="btn" href="https://www.google.com/maps?q=34.7918033,126.3651007&z=17" target="_blank" rel="noopener">Open in Google Maps</a></div>
     </div>
     <div class="card"><h3>Contact Form</h3>
       <form id="contactForm" novalidate>
@@ -483,7 +442,7 @@ footer .links a{color:rgba(255,255,255,.75)}
 </main>
 
 <footer><div class="wrap">
-  <div class="l"><span class="mark"><img src="HMAI_logo.png" alt=""></span><div><b style="font-family:var(--fd)">Human-Marine Autonomy Interaction Research Group</b><small>© 2026 Mokpo National Maritime University · Room #6315, No.2 Engineering Bldg.</small></div></div>
+  <div class="l"><span class="mark"><img src="img/logo.png" alt=""></span><div><b style="font-family:var(--fd)">Human-Marine Autonomy Interaction Research Group</b><small>© 2026 Mokpo National Maritime University · Room #6315, No.2 Engineering Bldg.</small></div></div>
   <div class="links" id="footNav"></div>
 </div></footer>
 
@@ -518,23 +477,22 @@ const PEOPLE=[
   {kr:"최 충 정",en:"M.Sc. Choong-Jung Choi",role:"Ph.D. course",f:[["Position","Lead Researcher / Korea Maritime Transportation Safety Authority"],["Office","KOMSA, Room #6315, No.2 Engineering Bldg."]]},
   {kr:"오 병 훈",en:"M.Sc. Byunghun Oh",role:"Ph.D. course",f:[["Position","Deck Officer of Training Ship / Mokpo National Maritime University"],["Office","Room #6315, No.2 Engineering Bldg., Training ship"]]},
   {kr:"손 철",en:"M.Sc. Chul Son",role:"Ph.D. course",f:[["Position","VTSO / Korea Coast Guard"],["Office","KCG, Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"이 재 용",en:"M.Sc. Jae-Yong Lee",role:"Ph.D. course",f:[["Position","Team Leader / Mokpo Regional Office of Oceans and Fisheries"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"최 희 종",en:"M.Sc. Heejong Choi",role:"Ph.D. course",f:[["Position","Deck Officer of Training Ship / Mokpo National Maritime University"],["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"이 재 용",en:"M.Sc. Jae-Yong Lee",role:"Ph.D. course",f:[["Position","Team Leader / Mokpo Regional Maritime Safety Tribunal"],["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"최 희 종",en:"M.Sc. Heejung Choi",role:"Ph.D. course",f:[["Position","Deck Officer of Training Ship / Mokpo National Maritime University"],["Office","Room #6315, No.2 Engineering Bldg."]]},
   {kr:"이 한 용",en:"M.Sc. Han-Yong Lee",role:"Ph.D. course",f:[["Position","General Manager / Hangang River Bus"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"곽 수 봉",en:"M.Sc. Soo-Bong Kwak",role:"Ph.D. course",f:[["Position","Team Leader / Mokpo Regional Maritime Safety Tribunal"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"이 재 운",en:"M.Sc. Jae-Un Lee",role:"Ph.D. course",f:[["Position","Team Leader / Daesan Regional Office of Oceans and Fisheries"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"허 학 선",en:"M.Sc. Hak Sun Hur",role:"Ph.D. course",f:[["Position","Chief of Mokpo VTS Center / Korea Coast Guard"],["Office","Room #6315, No.2 Engineering Bldg."]]}
+  {kr:"곽 수 봉",en:"M.Sc. Soo-Bong Kwak",role:"Ph.D. course",f:[["Position","Senior Administrative Officer / Mokpo Regional Maritime Safety Tribunal"],["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"이 재 운",en:"M.Sc. Jae-Un Lee",role:"Ph.D. course",f:[["Position","Administrative Officer / Daesan Regional Office of Oceans and Fisheries"],["Office","Room #6315, No.2 Engineering Bldg."]]}
  ]},
  {g:"Students (Master course)",kr:"M.S. course",m:[
-  {kr:"양 대 성",en:"B.Sc. Dae-Sung Yang",role:"M.S. course",f:[["Position","General Manager / HD Hyundai Samho Co., Ltd."],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"오 진 환",en:"B.Sc. Jin-Hwan Oh",role:"M.S. course",f:[["Position","Fireboat Captain (Deputy Director) / National Fire Agency"],["E-mail","ojh900413@mmu.ac.kr"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"유 성 재",en:"B.Sc. Seong-Jae Yu",role:"M.S. course",f:[["Position","Deck Officer of Training Ship / Mokpo National Maritime University"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"백 승 안",en:"B.Sc. Seung-An Baek",role:"M.S. course",f:[["Position","Ferry Operations Manager / Korea Maritime Transportation Safety Authority"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"김 대 중",en:"B.Sc. Dae-Jung Kim",role:"M.S. course",f:[["Position","VTSO / Korea Coast Guard"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"김 기 문",en:"B.Sc. Ki-Moon Kim",role:"M.S. course",f:[["Position","Instructor / Korea Institute of Maritime and Fisheries Technology"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"김 현 성",en:"B.Sc. Hyun-Sung Kim",role:"M.S. course",f:[["Position","VTSO / Korea Coast Guard"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"허 승",en:"B.Sc. Seung Heo",role:"M.S. course",f:[["Position","Deck Officer of Training Ship / Mokpo National Maritime University"],["Office","Room #6315, No.2 Engineering Bldg."]]},
-  {kr:"송 재 호",en:"B.Sc. Jae-Ho Song",role:"M.S. course",f:[["Position","VTSO / Korea Coast Guard"],["Office","Room #6315, No.2 Engineering Bldg."]]}
+  {kr:"양 대 성",en:"B.Sc. Dae-Sung Yang",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"오 진 환",en:"B.Sc. Jin-Hwan Oh",role:"M.S. course",f:[["E-mail","ojh900413@mmu.ac.kr"],["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"유 성 재",en:"B.Sc. Seong-Jae Yoo",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"백 승 안",en:"B.Sc. Seung-An Baek",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"김 대 중",en:"B.Sc. Dae-Jung Kim",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"김 기 문",en:"B.Sc. Ki-Moon Kim",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"김 현 성",en:"B.Sc. Hyun-Sung Kim",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"허 승",en:"B.Sc. Seung Heo",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]},
+  {kr:"송 재 호",en:"B.Sc. Jae-Ho Song",role:"M.S. course",f:[["Office","Room #6315, No.2 Engineering Bldg."]]}
  ]},
  {g:"Alumni",kr:"Graduates",m:[
   {kr:"이 리 나",en:"Dr. Lina Lee",role:"Alumni",f:[["Position","Visiting Professor / Mokpo National Maritime University"],["Office","Room #6315, No.2 Engineering Bldg., Training ship"]]},
@@ -544,9 +502,6 @@ const PEOPLE=[
 ];
 
 const PROJECTS=[
- ["자율운항선박–유인선박 간 협업 충돌회피를 위한 정보교환 시스템 개발","한국연구재단","2026.09 – 2029.08"],
- ["AI 기반 선박 이미지 분석을 통한 기초자료 예측 모델 연구 용역","한국해양교통안전공단","2026.08 – 2026.12"],
- ["AI 기반 고위험선박 자동 식별 알고리즘 연구 용역","한국해양교통안전공단","2026.05 – 2026.09"],
  ["연근해어선 해양사고 위험성지수 개발 및 검증 연구 용역","한국해양교통안전공단","2025.09 – 2025.11"],
  ["2025년 상시적 의사결정 지원 데이터 분석 사업","한국지능정보사회진흥원","2025.08 – 2026.03"],
  ["데이터 기반 항행장애물 위험성 평가 모델 고도화 (2025년도 항행장애물 제거사업 용역)","한국해양교통안전공단","2025.05 – 2025.12"],
@@ -570,72 +525,67 @@ const PROJECTS=[
 ];
 
 const INTL=[
- ["Risk-Aware Local Path Planning with Kinematic Constraints for Small Vessel Navigation in Coastal Waters Using an Integral Image-Based Obstacle Density Field","Journal of Marine Science and Engineering",2026,"SCIE","https://doi.org/10.3390/jmse14161499"],
- ["A Conservative Hybrid Risk Assessment Model for Navigational Obstacles Integrating Fuzzy Logic with a Qualitative Matrix and a Red Flag Protocol","Journal of Marine Science and Engineering",2026,"SCIE","https://doi.org/10.3390/jmse14161468"],
  ["Path planning and collision avoidance technologies for maritime autonomous surface ships: a review of COLREGs compliance, algorithmic trends and the navigation-GPT framework","Journal of Navigation",2026,"SCIE","https://www.cambridge.org/core/journals/journal-of-navigation/article/abs/path-planning-and-collision-avoidance-technologies-for-maritime-autonomous-surface-ships-a-review-of-colregs-compliance-algorithmic-trends-and-the-navigationgpt-framework/964649D8A39D86D58004B14CAD8A3C39"],
  ["BAARTR: Boundary-Aware Adaptive Regression for Kinematically Consistent Vessel Trajectory Reconstruction from Sparse AIS","Journal of Marine Science and Engineering",2026,"SCIE","https://www.mdpi.com/2077-1312/14/2/116"],
  ["Development of collision-case-based testing scenarios for validating autonomous ship collision-avoidance algorithms","Brodogradnja",2026,"SCIE","https://brodogradnja.fsb.hr/vol-77-no-2-77204/"],
  ["Improving anchorage occupancy forecasting with stacked ensemble learning","Brodogradnja",2026,"SCIE","https://brodogradnja.fsb.hr/wp-content/uploads/sites/25/2025/09/No1_3.pdf"],
- ["A CDC–ANFIS-Based Model for Assessing Ship Collision Risk in Autonomous Navigation","Journal of Marine Science and Engineering",2025,"SCIE","https://doi.org/10.3390/jmse13081492"],
- ["A Proposal for Alternative Navigation Routes Following the Development of Offshore Wind Farms in the Waters of the Republic of Korea","Journal of Marine Science and Engineering",2025,"SCIE","https://doi.org/10.3390/jmse13050980"],
- ["Development of a Risk Assessment System for Navigational Obstacles Considering Collision and Pollution Risks","Applied Sciences",2025,"SCIE","https://doi.org/10.3390/app15052325"],
- ["Development of a Multidimensional Analysis and Integrated Visualization Method for Maritime Traffic Behaviors Using DBSCAN-Based Dynamic Clustering","Applied Sciences",2025,"SCIE","https://doi.org/10.3390/app15020529"],
- ["Development of HTC-DBSCAN: A Hierarchical Trajectory Clustering Algorithm with Automated Parameter Tuning","Applied Sciences",2024,"SCIE","https://doi.org/10.3390/app142310995"],
- ["Anchor Dragging Risk Estimation Strategy from Supervised Cost-Sensitive Learning","Journal of Marine Science and Engineering",2024,"SCIE","https://doi.org/10.3390/jmse12101817"],
- ["Cause analysis and countermeasure for capsizing accident of a dredge fishing boat","Journal of International Maritime Safety, Environmental Affairs, and Shipping",2024,"SCOPUS","https://doi.org/10.1080/25725084.2024.2417528"],
- ["Map Space Modeling Method Reflecting Safety Margin in Coastal Water Based on Electronic Chart for Path Planning","Sensors",2023,"SCIE","https://doi.org/10.3390/s23031723"],
- ["Requirements for Optimal Local Route Planning of Autonomous Ships","Journal of Marine Science and Engineering",2022,"SCIE","https://doi.org/10.3390/jmse11010017"],
- ["Development of Ship Route-Planning Algorithm Based on Rapidly-Exploring Random Tree (RRT*) Using Designated Space","Journal of Marine Science and Engineering",2022,"SCIE","https://doi.org/10.3390/jmse10121800"],
- ["Development of Priority Index for Intelligent Vessel Traffic Monitoring System in Vessel Traffic Service Areas","Applied Sciences",2022,"SCIE","https://doi.org/10.3390/app12083807"],
- ["Fuzzy Inference and Sequence Model-Based Collision Risk Prediction System for Stand-On Vessel","Sensors",2022,"SCIE","https://doi.org/10.3390/s22134983"],
- ["Local Route Planning for Collision Avoidance of Maritime Autonomous Surface Ships in Compliance with COLREGs Rules","Sustainability",2021,"SCIE","https://doi.org/10.3390/su14010198"],
- ["Regional Collision Risk Prediction System at a Collision Area Considering Spatial Pattern","Journal of Marine Science and Engineering",2021,"SCIE","https://doi.org/10.3390/jmse9121365"],
- ["Collision Risk Assessment Support System for MASS RO and VTSO Support in Multi-Ship Environment of Vessel Traffic Service Area","Journal of Marine Science and Engineering",2021,"SCIE","https://doi.org/10.3390/jmse9101143"],
- ["Collision Risk Inference System for Maritime Autonomous Surface Ships Using COLREGs Rules Compliant Collision Avoidance","IEEE Access",2021,"SCIE","https://doi.org/10.1109/ACCESS.2021.3049238"],
- ["Vessel Trajectory Analysis in Designated Harbor Route Considering the Influence of External Forces","Journal of Marine Science and Engineering",2020,"SCIE","https://doi.org/10.3390/jmse8110860"],
- ["Interval Type-2 Fuzzy Inference System Based on Closest Point of Approach for Collision Avoidance between Ships","Applied Sciences",2020,"SCIE","https://doi.org/10.3390/app10113919"],
- ["Evaluation of ship collision risk assessments using environmental stress and collision risk models","Ocean Engineering",2019,"SCIE","https://doi.org/10.1016/j.oceaneng.2019.106527"],
- ["Anomalous Vessel Behavior Detection Based on SVR Seaway Model","International Journal of Fuzzy Logic and Intelligent Systems",2019,"SCOPUS","https://doi.org/10.5391/IJFIS.2019.19.1.18"],
- ["Extraction of Reference Seaway through Machine Learning of Ship Navigational Data and Trajectory","International Journal of Fuzzy Logic and Intelligent Systems",2017,"SCOPUS","https://doi.org/10.5391/IJFIS.2017.17.2.82"],
- ["Vessel Target Prediction Method and Dead Reckoning Position Based on SVR Seaway Model","International Journal of Fuzzy Logic and Intelligent Systems",2017,"SCOPUS","https://doi.org/10.5391/IJFIS.2017.17.4.279"],
- ["Pattern Recognition of Ship Navigational Data Using Support Vector Machine","International Journal of Fuzzy Logic and Intelligent Systems",2015,"SCOPUS","https://doi.org/10.5391/IJFIS.2015.15.4.268"],
- ["Utilization of Planned Routes and Dead Reckoning Positions to Improve Situation Awareness at Sea","International Journal of Fuzzy Logic and Intelligent Systems",2014,"SCOPUS","https://doi.org/10.5391/IJFIS.2014.14.4.288"],
- ["Prediction Table for Marine Traffic for Vessel Traffic Service Based on Cognitive Work Analysis","International Journal of Fuzzy Logic and Intelligent Systems",2013,"SCOPUS","https://doi.org/10.5391/IJFIS.2013.13.4.315"]
+ ["A CDC–ANFIS-Based Model for Assessing Ship Collision Risk in Autonomous Navigation","Journal of Marine Science and Engineering",2025,"SCIE"],
+ ["A Proposal for Alternative Navigation Routes Following the Development of Offshore Wind Farms in the Waters of the Republic of Korea","Journal of Marine Science and Engineering",2025,"SCIE"],
+ ["Development of a Risk Assessment System for Navigational Obstacles Considering Collision and Pollution Risks","Applied Sciences",2025,"SCIE"],
+ ["Development of a Multidimensional Analysis and Integrated Visualization Method for Maritime Traffic Behaviors Using DBSCAN-Based Dynamic Clustering","Applied Sciences",2025,"SCIE"],
+ ["Development of HTC-DBSCAN: A Hierarchical Trajectory Clustering Algorithm with Automated Parameter Tuning","Applied Sciences",2024,"SCIE"],
+ ["Anchor Dragging Risk Estimation Strategy from Supervised Cost-Sensitive Learning","Journal of Marine Science and Engineering",2024,"SCIE"],
+ ["Cause analysis and countermeasure for capsizing accident of a dredge fishing boat","Journal of International Maritime Safety, Environmental Affairs, and Shipping",2024,"SCOPUS"],
+ ["Map Space Modeling Method Reflecting Safety Margin in Coastal Water Based on Electronic Chart for Path Planning","Sensors",2023,"SCIE"],
+ ["Requirements for Optimal Local Route Planning of Autonomous Ships","Journal of Marine Science and Engineering",2022,"SCIE"],
+ ["Development of Ship Route-Planning Algorithm Based on Rapidly-Exploring Random Tree (RRT*) Using Designated Space","Journal of Marine Science and Engineering",2022,"SCIE"],
+ ["Development of Priority Index for Intelligent Vessel Traffic Monitoring System in Vessel Traffic Service Areas","Applied Sciences",2022,"SCIE"],
+ ["Fuzzy Inference and Sequence Model-Based Collision Risk Prediction System for Stand-On Vessel","Sensors",2022,"SCIE"],
+ ["Local Route Planning for Collision Avoidance of Maritime Autonomous Surface Ships in Compliance with COLREGs Rules","Sustainability",2021,"SCIE"],
+ ["Regional Collision Risk Prediction System at a Collision Area Considering Spatial Pattern","Journal of Marine Science and Engineering",2021,"SCIE"],
+ ["Collision Risk Assessment Support System for MASS RO and VTSO Support in Multi-Ship Environment of Vessel Traffic Service Area","Journal of Marine Science and Engineering",2021,"SCIE"],
+ ["Collision Risk Inference System for Maritime Autonomous Surface Ships Using COLREGs Rules Compliant Collision Avoidance","IEEE Access",2021,"SCIE"],
+ ["Vessel Trajectory Analysis in Designated Harbor Route Considering the Influence of External Forces","Journal of Marine Science and Engineering",2020,"SCIE"],
+ ["Interval Type-2 Fuzzy Inference System Based on Closest Point of Approach for Collision Avoidance between Ships","Applied Sciences",2020,"SCIE"],
+ ["Evaluation of ship collision risk assessments using environmental stress and collision risk models","Ocean Engineering",2019,"SCIE"],
+ ["Anomalous Vessel Behavior Detection Based on SVR Seaway Model","International Journal of Fuzzy Logic and Intelligent Systems",2019,"SCOPUS"],
+ ["Extraction of Reference Seaway through Machine Learning of Ship Navigational Data and Trajectory","International Journal of Fuzzy Logic and Intelligent Systems",2017,"SCOPUS"],
+ ["Vessel Target Prediction Method and Dead Reckoning Position Based on SVR Seaway Model","International Journal of Fuzzy Logic and Intelligent Systems",2017,"SCOPUS"],
+ ["Pattern Recognition of Ship Navigational Data Using Support Vector Machine","International Journal of Fuzzy Logic and Intelligent Systems",2015,"SCOPUS"],
+ ["Utilization of Planned Routes and Dead Reckoning Positions to Improve Situation Awareness at Sea","International Journal of Fuzzy Logic and Intelligent Systems",2014,"SCOPUS"],
+ ["Prediction Table for Marine Traffic for Vessel Traffic Service Based on Cognitive Work Analysis","International Journal of Fuzzy Logic and Intelligent Systems",2013,"SCOPUS"]
 ];
 const KSMES="Journal of the Korean Society of Marine Environment & Safety", KNPR="Journal of Korean Navigation and Port Research", KIIS="Journal of Korean Institute of Intelligent Systems", KMPS="한국해양경찰학회보";
 const DOM=[
- ["다중선박 환경에서 유인선 항해사의 LLM 기반 실시간 충돌회피 의사결정 지원을 위한 단계별 프롬프트 설계",KSMES,2026,"https://kosomes.jams.or.kr/po/volisse/sjPubsArtiPopView.kci?soceId=INS000000660&artiId=SJ0000003363&sereId=SER000000001&submCnt=1&indexNo=4"],
- ["교차 조우 영향을 고려한 상대적 충돌 위험 증가지수 분석 및 위험구역 식별에 관한 연구",KSMES,2026,"https://kosomes.jams.or.kr/po/volisse/sjPubsArtiPopView.kci?soceId=INS000000660&artiId=SJ0000003370&sereId=SER000000001&submCnt=1&indexNo=11"],
- ["AIS 수신장치의 선박 항적 데이터 손실 보간 기법에 관한 연구",KSMES,2025,"https://doi.org/10.7837/kosomes.2025.31.3.365"],
- ["유인선 항해사의 GPT기반 실시간 충돌회피 의사결정 지원을 위한 단계별 프롬프트 설계",KSMES,2025,"https://doi.org/10.7837/kosomes.2025.31.3.390"],
- ["해황 정보 데이터 기반 공간 보간에 관한 연구",KSMES,2025,"https://doi.org/10.7837/kosomes.2025.31.1.068"],
- ["몬테카를로 시뮬레이션을 이용한 임의의 부유물과 선박간의 충돌(접촉) 확률 산출 모델 연구",KSMES,2024,"https://doi.org/10.7837/kosomes.2024.30.7.828"],
- ["광양항 묘도수도 확장 및 직선화 이후 제한속력 설정에 관한 연구",KSMES,2024,"https://doi.org/10.7837/kosomes.2024.30.6.597"],
- ["효율적인 항로 군집화를 위한 항해 데이터 전처리 기술에 관한 연구",KSMES,2024,"https://doi.org/10.7837/kosomes.2024.30.5.415"],
- ["샘플링 기반 탐색 알고리즘을 활용한 정박지 내 투묘 지점 선정 방법에 관한 연구",KSMES,2024,"https://doi.org/10.7837/kosomes.2024.30.5.426"],
- ["영상처리기법을 활용한 연도교와 선박간의 충돌사고 위험성 평가에 관한 연구",KSMES,2022,"https://doi.org/10.7837/kosomes.2022.28.7.1111"],
- ["선박 통항로와 해상풍력단지 간 최적의 이격거리 산정 모델 개발",KSMES,2022,"https://doi.org/10.7837/kosomes.2022.28.6.973"],
- ["Analysis of User Requirements for Development of Vessel Traffic Services Cloud System",KSMES,2022,"https://doi.org/10.7837/kosomes.2022.28.2.314"],
- ["Study on the Roll Motion of Moored Ships Using Marine Traffic Characteristics",KSMES,2021,"https://doi.org/10.7837/kosomes.2021.27.1.074"],
- ["정박지 통항선박의 충돌위험 모델 개발을 위한 기초연구 – 정박지 통항선박의 안전영역",KSMES,2021,"https://doi.org/10.7837/kosomes.2021.27.1.067"],
+ ["AIS 수신장치의 선박 항적 데이터 손실 보간 기법에 관한 연구",KSMES,2025],
+ ["유인선 항해사의 GPT기반 실시간 충돌회피 의사결정 지원을 위한 단계별 프롬프트 설계",KSMES,2025],
+ ["해황 정보 데이터 기반 공간 보간에 관한 연구",KSMES,2025],
+ ["몬테카를로 시뮬레이션을 이용한 임의의 부유물과 선박간의 충돌(접촉) 확률 산출 모델 연구",KSMES,2024],
+ ["광양항 묘도수도 확장 및 직선화 이후 제한속력 설정에 관한 연구",KSMES,2024],
+ ["효율적인 항로 군집화를 위한 항해 데이터 전처리 기술에 관한 연구",KSMES,2024],
+ ["샘플링 기반 탐색 알고리즘을 활용한 정박지 내 투묘 지점 선정 방법에 관한 연구",KSMES,2024],
+ ["영상처리기법을 활용한 연도교와 선박간의 충돌사고 위험성 평가에 관한 연구",KSMES,2022],
+ ["선박 통항로와 해상풍력단지 간 최적의 이격거리 산정 모델 개발",KSMES,2022],
+ ["Analysis of User Requirements for Development of Vessel Traffic Services Cloud System",KSMES,2022],
+ ["Study on the Roll Motion of Moored Ships Using Marine Traffic Characteristics",KSMES,2021],
+ ["정박지 통항선박의 충돌위험 모델 개발을 위한 기초연구 – 정박지 통항선박의 안전영역",KSMES,2021],
  ["해상교통 분석을 위한 관제사 에이전트 설계에 관한 연구",KMPS,2020],
- ["해기사의 직무스트레스가 이직의도에 미치는 영향: 정신건강과 진로적응성의 매개효과를 중심으로",KMPS,2020,"https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002655484"],
+ ["해기사의 직무스트레스가 이직의도에 미치는 영향: 정신건강과 진로적응성의 매개효과를 중심으로",KMPS,2020],
  ["AHP 기법을 이용한 해상교통관제 업무의 상대적 중요도 및 작업부하 평가",KMPS,2019],
- ["서남해 해상풍력발전단지 내 항로형태에 따른 선박통항 위험도 평가에 관한 연구",KSMES,2019,"https://doi.org/10.7837/kosomes.2019.25.6.635"],
- ["Inference system of collision risk using ship near-collision data",KIIS,2019,"https://doi.org/10.5391/jkiis.2019.29.5.395"],
- ["Design of Information Exchange Handling System for Safe Navigation of Autonomous Ship",KIIS,2019,"https://doi.org/10.5391/jkiis.2019.29.1.42"],
- ["선박 근접상황에 대한 VTSO의 상황 인식 분석에 관한 연구",KNPR,2018,"https://koreascience.kr/article/JAKO201810237887697.page"],
- ["선박 주묘 위험성 판별 프로그램 개발에 관한 연구",KSMES,2018,"https://doi.org/10.7837/kosomes.2018.24.6.646"],
- ["영역감시 분석을 통한 VTS의 효율적 정박지 관리 방안에 관한 연구",KNPR,2018,"https://www.kci.go.kr/kciportal/ci/sereArticleSearch/ciSereArtiView.kci?sereArticleSearchBean.artiId=ART002355888"],
- ["해상교통관제사의 위험태도 분석을 통한 선박 충돌 위험도 연구",KNPR,2017,"https://doi.org/10.5394/kinpr.2017.41.3.93"],
- ["최근접점 상대방위에 따른 선박충돌위험알고리즘 개발에 관한 연구",KNPR,2015,"https://doi.org/10.5394/kinpr.2015.39.6.493"]
+ ["서남해 해상풍력발전단지 내 항로형태에 따른 선박통항 위험도 평가에 관한 연구",KSMES,2019],
+ ["Inference system of collision risk using ship near-collision data",KIIS,2019],
+ ["Design of Information Exchange Handling System for Safe Navigation of Autonomous Ship",KIIS,2019],
+ ["선박 근접상황에 대한 VTSO의 상황 인식 분석에 관한 연구",KNPR,2018],
+ ["선박 주묘 위험성 판별 프로그램 개발에 관한 연구",KSMES,2018],
+ ["영역감시 분석을 통한 VTS의 효율적 정박지 관리 방안에 관한 연구",KNPR,2018],
+ ["해상교통관제사의 위험태도 분석을 통한 선박 충돌 위험도 연구",KNPR,2017],
+ ["최근접점 상대방위에 따른 선박충돌위험알고리즘 개발에 관한 연구",KNPR,2015]
 ];
-const BOOKS=[["《AI와 북극항로 운항》 (AI and Arctic Shipping Route Operation), Communication Books AI Series","2026"],["《자율운항선박》 (Maritime Autonomous Surface Ships), Communication Books AI Series","2026"],["Practical VTS Communication","2025"],["IMO SMCP: Guidebook for Maritime Communication","2025"]];
+const BOOKS=[["《자율운항선박》 (Maritime Autonomous Surface Ships), Communication Books AI Series","2026"],["Practical VTS Communication","2025"],["IMO SMCP: Guidebook for Maritime Communication","2025"]];
 const PATENTS=[["선박의 항로 탐색을 위한 격자 기반 해황 정보 제공방법, 장치 및 컴퓨터 프로그램","Filed 2024"],["충돌 위험성과 해양환경 오염 위험성을 고려한 항행 장애물 위험 평가방법, 장치 및 컴퓨터 프로그램","Filed 2024"],["선박의 항해 데이터의 클러스터링을 이용한 최적 항로 결정방법, 장치 및 컴퓨터프로그램","Filed 2024"],["선박의 최적 경로 생성 방법 및 시스템","Filed 2023"],["선박교통관리를 위한 복합항해위험 우선순위 지수 개발 시스템","Filed 2022"],["유인선과 무인선 사이에 협력 항해를 지원하기 위한 무인선 통신중계 시스템","Registered 2020"],["선박 항해 감시 장치 및 방법","Registered 2018"]];
 const PROGRAMS=[["해기사 직무스트레스 자가진단 어플리케이션 (Seafarer job-stress self-assessment app)","Registered 2020"]];
 
 const AWARDS=[
- ["Jul 2026","MDPI 2025 Top 1000 Reviewers",{ph:[{src:"awards/MDPI%202025%20Top%201000%20Reviewers%20%28Prof.%20Dr.%20Ho%20Namgung%29.jpg"}],who:"Prof. Ho Namgung"}],
  ["Apr 2025","해양환경안전학회 춘계학술대회 우수논문상"],
  ["Mar 2025","Journal of Marine Science and Engineering (SCIE) 2024 우수심사자상 (Outstanding Reviewer Award)"],
  ["Nov 2024","해양환경안전학회 추계학술대회 우수발표상"],
@@ -661,8 +611,6 @@ const AWARDS=[
 ];
 
 const NEWS=[
- {d:"Sep 2026",t:"2026년도 HMAI 연구실 3분기 회식",ph:[{src:"news/260918-1.jpg"},{src:"news/260918-2.jpg"}],b:["2026년 3분기를 맞아 연구실 구성원들이 함께하는 회식 자리를 가졌습니다.","허학선 연구원(박사과정)이 Human-Marine AI 연구실의 일원이 되었습니다.","남궁호 교수님이 '자율운항선박–유인선박 간 협업 충돌회피를 위한 정보교환 시스템 개발' 연구과제에 선정되었습니다."]},
- {d:"Aug 2026",cover:1,t:"HMAI 교수진, 커뮤니케이션북스 AI문고 《AI와 북극항로 운항》 출간",ph:[{src:"news/202608-arctic-book.jpg"}],b:["남궁호(해양산업융합학과), 김주성·이홍훈(항해학부), 장다운(승선실습과정부) 교수가 공동 집필한 《AI와 북극항로 운항》은 기후변화로 북극 해빙이 감소하며 이용 가능성이 높아진 북극항로에서 선박이 안전하고 효율적으로 운항하기 위한 AI 기술의 활용 방안과 발전 방향을 체계적으로 다룬다.", "지정학·물류 중심의 기존 논의와 달리 '실제 선박 운항에 AI를 어떻게 적용할 것인가'라는 항해학적 관점에서 해빙·기상·해양정보 분석, 항로계획 및 최적화, 운항 위험도 평가와 의사결정 등 운항 전 과정에서 AI의 역할을 살폈다. 극지 연구항해와 실습선 운항 경험을 바탕으로 현장에서 요구되는 기술적 과제도 함께 제시한다.", "지난 3월 《자율운항선박》에 이은 두 번째 AI문고 공저로, 연구·교육 영역을 자율운항선박에서 북극항로까지 넓힌 성과이며 정부의 북극항로 정책과 극지 해기사 양성 기조에 발맞춰 AI 기반 선박 운항기술 연구와 해양산업 전문인력 양성에 기여할 것으로 기대된다."]},
  {d:"Jun 2026",t:"2026년도 해양환경안전학회 춘계학술대회",p:5,b:["'자율운항선박과 항해안전을 위한 머신러닝 응용(ML Apps for MASS and Nav Safety)' 특별세션을 개최하였습니다.","HMAI 연구실에서 총 4편의 논문이 발표되었습니다."]},
  {d:"May 2026",t:"2026 한국해양과학기술협의회 공동학술대회",p:2},
  {d:"Mar 2026",t:"Journal of Marine Science and Engineering (SCIE) 2025 우수심사자상 수상 (김주성 교수)",p:1,b:["Outstanding Reviewer Award — <a href='https://www.mdpi.com/journal/jmse/awards/3946' target='_blank' rel='noopener'>mdpi.com/journal/jmse/awards/3946</a>"]},
@@ -699,26 +647,26 @@ const NEWS=[
 ];
 
 
-const MEDIA={"awards": {"0": [{"src": "awards/a00_1.jpg", "w": 347, "h": 424}], "1": [{"src": "awards/a01_1.jpg", "w": 379, "h": 268}], "2": [{"src": "awards/a02_1.jpg", "w": 287, "h": 383}, {"src": "awards/a02_2.jpg", "w": 287, "h": 383}], "3": [{"src": "awards/a03_1.jpg", "w": 289, "h": 453}, {"src": "awards/a03_2.jpg", "w": 298, "h": 456}], "4": [{"src": "awards/a04_1.jpg", "w": 500, "h": 349}], "5": [{"src": "awards/a05_1.jpg", "w": 491, "h": 336}], "6": [{"src": "awards/a06_1.jpg", "w": 313, "h": 450}, {"src": "awards/a06_2.jpg", "w": 312, "h": 416}], "7": [{"src": "awards/a07_1.jpg", "w": 305, "h": 424}, {"src": "awards/a07_2.jpg", "w": 300, "h": 412}], "8": [{"src": "awards/a08_1.jpg", "w": 390, "h": 279}], "9": [{"src": "awards/a09_1.jpg", "w": 504, "h": 375}], "10": [{"src": "awards/a10_1.jpg", "w": 359, "h": 272}], "11": [{"src": "awards/a11_1.jpg", "w": 544, "h": 386}], "12": [{"src": "awards/a12_1.jpg", "w": 528, "h": 376}], "13": [{"src": "awards/a13_1.jpg", "w": 376, "h": 522}], "14": [{"src": "awards/a14_1.jpg", "w": 498, "h": 350}], "15": [{"src": "awards/a15_1.jpg", "w": 512, "h": 364}], "16": [{"src": "awards/a16_1.jpg", "w": 402, "h": 585}], "17": [{"src": "awards/a17_1.jpg", "w": 506, "h": 368}], "18": [{"src": "awards/a18_1.jpg", "w": 528, "h": 384}], "19": [{"src": "awards/a19_1.jpg", "w": 407, "h": 579}], "20": [{"src": "awards/a20_1.jpg", "w": 410, "h": 574}], "21": [{"src": "awards/a21_1.jpg", "w": 416, "h": 583}]}, "news": {"0": [{"src": "news/n00_1.jpg", "w": 800, "h": 538}, {"src": "news/n00_2.jpg", "w": 800, "h": 541}, {"src": "news/n00_3.jpg", "w": 1067, "h": 800}, {"src": "news/n00_4.jpg", "w": 1067, "h": 800}, {"src": "news/n00_5.jpg", "w": 1067, "h": 800}], "1": [{"src": "news/n01_1.jpg", "w": 800, "h": 600}, {"src": "news/n01_2.jpg", "w": 800, "h": 600}], "2": [{"src": "news/n02_1.jpg", "w": 531, "h": 592}], "3": [{"src": "news/n03_1.jpg", "w": 317, "h": 438}], "4": [{"src": "news/n04_1.jpg", "w": 800, "h": 600}, {"src": "news/n04_2.jpg", "w": 1400, "h": 547}], "5": [{"src": "news/n05_1.jpg", "w": 1100, "h": 548}], "6": [{"src": "news/n06_1.jpg", "w": 467, "h": 800}, {"src": "news/n06_2.jpg", "w": 212, "h": 800}], "7": [{"src": "news/n07_1.jpg", "w": 800, "h": 512}, {"src": "news/n07_2.jpg", "w": 800, "h": 450}, {"src": "news/n07_3.jpg", "w": 800, "h": 450}, {"src": "news/n07_4.jpg", "w": 800, "h": 600}], "8": [{"src": "news/n08_1.jpg", "w": 1100, "h": 733}], "9": [{"src": "news/n09_1.jpg", "w": 800, "h": 600}, {"src": "news/n09_2.jpg", "w": 800, "h": 600}, {"src": "news/n09_3.jpg", "w": 800, "h": 600}, {"src": "news/n09_4.jpg", "w": 800, "h": 450}, {"src": "news/n09_5.jpg", "w": 800, "h": 600}, {"src": "news/n09_6.jpg", "w": 800, "h": 450}, {"src": "news/n09_7.jpg", "w": 800, "h": 600}, {"src": "news/n09_8.jpg", "w": 800, "h": 600}, {"src": "news/n09_9.jpg", "w": 800, "h": 600}, {"src": "news/n09_10.jpg", "w": 800, "h": 600}], "10": [{"src": "news/n10_1.jpg", "w": 480, "h": 360}], "11": [{"src": "news/n11_1.jpg", "w": 800, "h": 600}, {"src": "news/n11_2.jpg", "w": 800, "h": 600}, {"src": "news/n11_3.jpg", "w": 800, "h": 600}, {"src": "news/n11_4.jpg", "w": 800, "h": 600}], "12": [{"src": "news/n12_1.jpg", "w": 954, "h": 805}], "13": [{"src": "news/n13_1.jpg", "w": 800, "h": 600}, {"src": "news/n13_2.jpg", "w": 800, "h": 450}], "14": [{"src": "news/n14_1.jpg", "w": 535, "h": 626}, {"src": "news/n14_2.jpg", "w": 800, "h": 600}, {"src": "news/n14_3.jpg", "w": 800, "h": 533}, {"src": "news/n14_4.jpg", "w": 800, "h": 533}, {"src": "news/n14_5.jpg", "w": 800, "h": 533}, {"src": "news/n14_6.jpg", "w": 800, "h": 533}, {"src": "news/n14_7.jpg", "w": 800, "h": 533}, {"src": "news/n14_8.jpg", "w": 800, "h": 533}, {"src": "news/n14_9.jpg", "w": 1008, "h": 756}, {"src": "news/n14_10.jpg", "w": 800, "h": 600}], "15": [{"src": "news/n15_1.jpg", "w": 1280, "h": 712}], "16": [{"src": "news/n16_1.jpg", "w": 812, "h": 625}, {"src": "news/n16_2.jpg", "w": 1123, "h": 794}], "17": [{"src": "news/n17_1.jpg", "w": 800, "h": 600}, {"src": "news/n17_2.jpg", "w": 800, "h": 600}], "18": [{"src": "news/n18_1.jpg", "w": 1067, "h": 800}, {"src": "news/n18_2.jpg", "w": 1067, "h": 800}, {"src": "news/n18_3.jpg", "w": 1067, "h": 800}], "19": [{"src": "news/n19_1.jpg", "w": 1067, "h": 800}, {"src": "news/n19_2.jpg", "w": 1067, "h": 800}, {"src": "news/n19_3.jpg", "w": 1100, "h": 619}, {"src": "news/n19_4.jpg", "w": 1100, "h": 619}, {"src": "news/n19_5.jpg", "w": 600, "h": 335}], "20": [{"src": "news/n20_1.jpg", "w": 438, "h": 329}], "21": [{"src": "news/n21_1.jpg", "w": 1067, "h": 800}, {"src": "news/n21_2.jpg", "w": 1067, "h": 800}, {"src": "news/n21_3.jpg", "w": 1067, "h": 800}, {"src": "news/n21_4.jpg", "w": 1100, "h": 619}, {"src": "news/n21_5.jpg", "w": 1100, "h": 619}, {"src": "news/n21_6.jpg", "w": 1100, "h": 619}, {"src": "news/n21_7.jpg", "w": 1100, "h": 619}, {"src": "news/n21_8.jpg", "w": 1100, "h": 619}, {"src": "news/n21_9.jpg", "w": 1100, "h": 619}, {"src": "news/n21_10.jpg", "w": 1067, "h": 800}, {"src": "news/n21_11.jpg", "w": 960, "h": 640}], "22": [{"src": "news/n22_1.jpg", "w": 495, "h": 244}], "23": [{"src": "news/n23_1.jpg", "w": 800, "h": 1067}, {"src": "news/n23_2.jpg", "w": 1067, "h": 800}, {"src": "news/n23_3.jpg", "w": 800, "h": 1067}, {"src": "news/n23_4.jpg", "w": 800, "h": 1067}, {"src": "news/n23_5.jpg", "w": 1042, "h": 800}], "24": [{"src": "news/n24_1.jpg", "w": 757, "h": 1079}], "25": [{"src": "news/n25_1.jpg", "w": 1100, "h": 619}, {"src": "news/n25_2.jpg", "w": 1100, "h": 619}, {"src": "news/n25_3.jpg", "w": 1100, "h": 619}, {"src": "news/n25_4.jpg", "w": 1100, "h": 619}, {"src": "news/n25_5.jpg", "w": 1100, "h": 619}, {"src": "news/n25_6.jpg", "w": 1100, "h": 619}, {"src": "news/n25_7.jpg", "w": 1067, "h": 800}, {"src": "news/n25_8.jpg", "w": 1067, "h": 800}, {"src": "news/n25_9.jpg", "w": 1067, "h": 800}, {"src": "news/n25_10.jpg", "w": 1067, "h": 800}], "26": [{"src": "news/n26_1.jpg", "w": 416, "h": 382}], "27": [{"src": "news/n27_1.jpg", "w": 1100, "h": 619}], "28": [{"src": "news/n28_1.jpg", "w": 1066, "h": 800}, {"src": "news/n28_2.jpg", "w": 1067, "h": 800}, {"src": "news/n28_3.jpg", "w": 1067, "h": 800}], "29": [{"src": "news/n29_1.jpg", "w": 1067, "h": 800}, {"src": "news/n29_2.jpg", "w": 788, "h": 1400}, {"src": "news/n29_3.jpg", "w": 1050, "h": 1400}, {"src": "news/n29_4.jpg", "w": 1100, "h": 619}, {"src": "news/n29_5.jpg", "w": 1100, "h": 619}], "30": [{"src": "news/n30_1.jpg", "w": 474, "h": 356}], "31": [{"src": "news/n31_1.jpg", "w": 481, "h": 361}], "32": [{"src": "news/n32_1.jpg", "w": 484, "h": 363}]}};
+const MEDIA={"awards": {"0": [{"src": "img/awards/a00_1.jpg", "w": 347, "h": 424}], "1": [{"src": "img/awards/a01_1.jpg", "w": 379, "h": 268}], "2": [{"src": "img/awards/a02_1.jpg", "w": 287, "h": 383}, {"src": "img/awards/a02_2.jpg", "w": 287, "h": 383}], "3": [{"src": "img/awards/a03_1.jpg", "w": 289, "h": 453}, {"src": "img/awards/a03_2.jpg", "w": 298, "h": 456}], "4": [{"src": "img/awards/a04_1.jpg", "w": 500, "h": 349}], "5": [{"src": "img/awards/a05_1.jpg", "w": 491, "h": 336}], "6": [{"src": "img/awards/a06_1.jpg", "w": 313, "h": 450}, {"src": "img/awards/a06_2.jpg", "w": 312, "h": 416}], "7": [{"src": "img/awards/a07_1.jpg", "w": 305, "h": 424}, {"src": "img/awards/a07_2.jpg", "w": 300, "h": 412}], "8": [{"src": "img/awards/a08_1.jpg", "w": 390, "h": 279}], "9": [{"src": "img/awards/a09_1.jpg", "w": 504, "h": 375}], "10": [{"src": "img/awards/a10_1.jpg", "w": 359, "h": 272}], "11": [{"src": "img/awards/a11_1.jpg", "w": 544, "h": 386}], "12": [{"src": "img/awards/a12_1.jpg", "w": 528, "h": 376}], "13": [{"src": "img/awards/a13_1.jpg", "w": 376, "h": 522}], "14": [{"src": "img/awards/a14_1.jpg", "w": 498, "h": 350}], "15": [{"src": "img/awards/a15_1.jpg", "w": 512, "h": 364}], "16": [{"src": "img/awards/a16_1.jpg", "w": 402, "h": 585}], "17": [{"src": "img/awards/a17_1.jpg", "w": 506, "h": 368}], "18": [{"src": "img/awards/a18_1.jpg", "w": 528, "h": 384}], "19": [{"src": "img/awards/a19_1.jpg", "w": 407, "h": 579}], "20": [{"src": "img/awards/a20_1.jpg", "w": 410, "h": 574}], "21": [{"src": "img/awards/a21_1.jpg", "w": 416, "h": 583}]}, "news": {"0": [{"src": "img/news/n00_1.jpg", "w": 800, "h": 538}, {"src": "img/news/n00_2.jpg", "w": 800, "h": 541}, {"src": "img/news/n00_3.jpg", "w": 1067, "h": 800}, {"src": "img/news/n00_4.jpg", "w": 1067, "h": 800}, {"src": "img/news/n00_5.jpg", "w": 1067, "h": 800}], "1": [{"src": "img/news/n01_1.jpg", "w": 800, "h": 600}, {"src": "img/news/n01_2.jpg", "w": 800, "h": 600}], "2": [{"src": "img/news/n02_1.jpg", "w": 531, "h": 592}], "3": [{"src": "img/news/n03_1.jpg", "w": 317, "h": 438}], "4": [{"src": "img/news/n04_1.jpg", "w": 800, "h": 600}, {"src": "img/news/n04_2.jpg", "w": 1400, "h": 547}], "5": [{"src": "img/news/n05_1.jpg", "w": 1100, "h": 548}], "6": [{"src": "img/news/n06_1.jpg", "w": 467, "h": 800}, {"src": "img/news/n06_2.jpg", "w": 212, "h": 800}], "7": [{"src": "img/news/n07_1.jpg", "w": 800, "h": 512}, {"src": "img/news/n07_2.jpg", "w": 800, "h": 450}, {"src": "img/news/n07_3.jpg", "w": 800, "h": 450}, {"src": "img/news/n07_4.jpg", "w": 800, "h": 600}], "8": [{"src": "img/news/n08_1.jpg", "w": 1100, "h": 733}], "9": [{"src": "img/news/n09_1.jpg", "w": 800, "h": 600}, {"src": "img/news/n09_2.jpg", "w": 800, "h": 600}, {"src": "img/news/n09_3.jpg", "w": 800, "h": 600}, {"src": "img/news/n09_4.jpg", "w": 800, "h": 450}, {"src": "img/news/n09_5.jpg", "w": 800, "h": 600}, {"src": "img/news/n09_6.jpg", "w": 800, "h": 450}, {"src": "img/news/n09_7.jpg", "w": 800, "h": 600}, {"src": "img/news/n09_8.jpg", "w": 800, "h": 600}, {"src": "img/news/n09_9.jpg", "w": 800, "h": 600}, {"src": "img/news/n09_10.jpg", "w": 800, "h": 600}], "10": [{"src": "img/news/n10_1.jpg", "w": 480, "h": 360}], "11": [{"src": "img/news/n11_1.jpg", "w": 800, "h": 600}, {"src": "img/news/n11_2.jpg", "w": 800, "h": 600}, {"src": "img/news/n11_3.jpg", "w": 800, "h": 600}, {"src": "img/news/n11_4.jpg", "w": 800, "h": 600}], "12": [{"src": "img/news/n12_1.jpg", "w": 954, "h": 805}], "13": [{"src": "img/news/n13_1.jpg", "w": 800, "h": 600}, {"src": "img/news/n13_2.jpg", "w": 800, "h": 450}], "14": [{"src": "img/news/n14_1.jpg", "w": 535, "h": 626}, {"src": "img/news/n14_2.jpg", "w": 800, "h": 600}, {"src": "img/news/n14_3.jpg", "w": 800, "h": 533}, {"src": "img/news/n14_4.jpg", "w": 800, "h": 533}, {"src": "img/news/n14_5.jpg", "w": 800, "h": 533}, {"src": "img/news/n14_6.jpg", "w": 800, "h": 533}, {"src": "img/news/n14_7.jpg", "w": 800, "h": 533}, {"src": "img/news/n14_8.jpg", "w": 800, "h": 533}, {"src": "img/news/n14_9.jpg", "w": 1008, "h": 756}, {"src": "img/news/n14_10.jpg", "w": 800, "h": 600}], "15": [{"src": "img/news/n15_1.jpg", "w": 1280, "h": 712}], "16": [{"src": "img/news/n16_1.jpg", "w": 812, "h": 625}, {"src": "img/news/n16_2.jpg", "w": 1123, "h": 794}], "17": [{"src": "img/news/n17_1.jpg", "w": 800, "h": 600}, {"src": "img/news/n17_2.jpg", "w": 800, "h": 600}], "18": [{"src": "img/news/n18_1.jpg", "w": 1067, "h": 800}, {"src": "img/news/n18_2.jpg", "w": 1067, "h": 800}, {"src": "img/news/n18_3.jpg", "w": 1067, "h": 800}], "19": [{"src": "img/news/n19_1.jpg", "w": 1067, "h": 800}, {"src": "img/news/n19_2.jpg", "w": 1067, "h": 800}, {"src": "img/news/n19_3.jpg", "w": 1100, "h": 619}, {"src": "img/news/n19_4.jpg", "w": 1100, "h": 619}, {"src": "img/news/n19_5.jpg", "w": 600, "h": 335}], "20": [{"src": "img/news/n20_1.jpg", "w": 438, "h": 329}], "21": [{"src": "img/news/n21_1.jpg", "w": 1067, "h": 800}, {"src": "img/news/n21_2.jpg", "w": 1067, "h": 800}, {"src": "img/news/n21_3.jpg", "w": 1067, "h": 800}, {"src": "img/news/n21_4.jpg", "w": 1100, "h": 619}, {"src": "img/news/n21_5.jpg", "w": 1100, "h": 619}, {"src": "img/news/n21_6.jpg", "w": 1100, "h": 619}, {"src": "img/news/n21_7.jpg", "w": 1100, "h": 619}, {"src": "img/news/n21_8.jpg", "w": 1100, "h": 619}, {"src": "img/news/n21_9.jpg", "w": 1100, "h": 619}, {"src": "img/news/n21_10.jpg", "w": 1067, "h": 800}, {"src": "img/news/n21_11.jpg", "w": 960, "h": 640}], "22": [{"src": "img/news/n22_1.jpg", "w": 495, "h": 244}], "23": [{"src": "img/news/n23_1.jpg", "w": 800, "h": 1067}, {"src": "img/news/n23_2.jpg", "w": 1067, "h": 800}, {"src": "img/news/n23_3.jpg", "w": 800, "h": 1067}, {"src": "img/news/n23_4.jpg", "w": 800, "h": 1067}, {"src": "img/news/n23_5.jpg", "w": 1042, "h": 800}], "24": [{"src": "img/news/n24_1.jpg", "w": 757, "h": 1079}], "25": [{"src": "img/news/n25_1.jpg", "w": 1100, "h": 619}, {"src": "img/news/n25_2.jpg", "w": 1100, "h": 619}, {"src": "img/news/n25_3.jpg", "w": 1100, "h": 619}, {"src": "img/news/n25_4.jpg", "w": 1100, "h": 619}, {"src": "img/news/n25_5.jpg", "w": 1100, "h": 619}, {"src": "img/news/n25_6.jpg", "w": 1100, "h": 619}, {"src": "img/news/n25_7.jpg", "w": 1067, "h": 800}, {"src": "img/news/n25_8.jpg", "w": 1067, "h": 800}, {"src": "img/news/n25_9.jpg", "w": 1067, "h": 800}, {"src": "img/news/n25_10.jpg", "w": 1067, "h": 800}], "26": [{"src": "img/news/n26_1.jpg", "w": 416, "h": 382}], "27": [{"src": "img/news/n27_1.jpg", "w": 1100, "h": 619}], "28": [{"src": "img/news/n28_1.jpg", "w": 1066, "h": 800}, {"src": "img/news/n28_2.jpg", "w": 1067, "h": 800}, {"src": "img/news/n28_3.jpg", "w": 1067, "h": 800}], "29": [{"src": "img/news/n29_1.jpg", "w": 1067, "h": 800}, {"src": "img/news/n29_2.jpg", "w": 788, "h": 1400}, {"src": "img/news/n29_3.jpg", "w": 1050, "h": 1400}, {"src": "img/news/n29_4.jpg", "w": 1100, "h": 619}, {"src": "img/news/n29_5.jpg", "w": 1100, "h": 619}], "30": [{"src": "img/news/n30_1.jpg", "w": 474, "h": 356}], "31": [{"src": "img/news/n31_1.jpg", "w": 481, "h": 361}], "32": [{"src": "img/news/n32_1.jpg", "w": 484, "h": 363}]}};
 const AWARD_WHO={0:'Dr. Dae-Han Lee',1:'Prof. Ho Namgung',2:'Yeon-Ji Baek',3:'Byunghun Oh',4:'Prof. Daun Jang',5:'Jae-Yong Lee',6:'Prof. Daun Jang',7:'Jae-Yong Lee',8:'Prof. Ho Namgung',9:'Prof. Daun Jang',11:'Prof. Ho Namgung',12:'Prof. Daun Jang',14:'Prof. Ho Namgung',15:'Dr. Lina Lee'};
-const PHOTOS={'Prof. Dr. Joo-Sung Kim':'people/kim.jpg','Prof. Dr. Jin-Suk Lee':'people/lee.jpg','Prof. Dr. Ho Namgung':'people/namgung.jpg','Prof. Dr. Daun Jang':'people/jang.jpg'};
-const FIELD_IMG=['themes/03.jpg','themes/04.jpg','themes/05.jpg','themes/06.jpg'];
+const PHOTOS={'Prof. Dr. Joo-Sung Kim':'img/people/kim.jpg','Prof. Dr. Jin-Suk Lee':'img/people/lee.jpg','Prof. Dr. Ho Namgung':'img/people/namgung.jpg','Prof. Dr. Daun Jang':'img/people/jang.jpg'};
+const FIELD_IMG=['img/themes/03.jpg','img/themes/04.jpg','img/themes/05.jpg','img/themes/06.jpg'];
 const THEMES=[
- ['themes/07.jpg','Adaptive ship domain','Variable safety domain for MASS in restricted waters','NRF · 2022–2023'],
- ['themes/08.jpg','Trajectory prediction','Deep-learning prediction of fishing-vessel movement for collision prevention','NRF · 2022–2023'],
- ['themes/09.jpg','Operator situation awareness','Eye-tracking and workload analysis of VTS operators','NRF · 2019–2022'],
- ['themes/10.jpg','Scenario-based validation','Collision-case-based testing scenarios for autonomous collision avoidance','Brodogradnja · 2026'],
+ ['img/themes/07.jpg','Adaptive ship domain','Variable safety domain for MASS in restricted waters','NRF · 2022–2023'],
+ ['img/themes/08.jpg','Trajectory prediction','Deep-learning prediction of fishing-vessel movement for collision prevention','NRF · 2022–2023'],
+ ['img/themes/09.jpg','Operator situation awareness','Eye-tracking and workload analysis of VTS operators','NRF · 2019–2022'],
+ ['img/themes/10.jpg','Scenario-based validation','Collision-case-based testing scenarios for autonomous collision avoidance','Brodogradnja · 2026'],
 ];
 const METHODS=[
- ['methods/02.jpg','Collision avoidance','COLREGs sectors, ship domain and CPA/TCPA geometry'],
- ['methods/03.jpg','Route planning','RRT* sampling-based planner with designated space'],
- ['methods/04.jpg','Trajectory clustering','HTC-DBSCAN hierarchical clustering of AIS tracks'],
- ['methods/05.jpg','Anomaly detection','Reference seaway (SVR) and anomalous behaviour'],
- ['methods/06.jpg','VTS priority index','Monitoring priority for intelligent traffic service'],
- ['methods/07.jpg','Anchorage analytics','Occupancy forecasting and anchor-dragging risk'],
- ['methods/08.jpg','Obstacle risk field','Collision and pollution risk of navigational obstacles'],
- ['methods/09.jpg','Human–autonomy pipeline','Sensing → learning → reasoning → decision → human'],
- ['methods/10.jpg','Research compass','Four research directions of the group'],
+ ['img/methods/02.jpg','Collision avoidance','COLREGs sectors, ship domain and CPA/TCPA geometry'],
+ ['img/methods/03.jpg','Route planning','RRT* sampling-based planner with designated space'],
+ ['img/methods/04.jpg','Trajectory clustering','HTC-DBSCAN hierarchical clustering of AIS tracks'],
+ ['img/methods/05.jpg','Anomaly detection','Reference seaway (SVR) and anomalous behaviour'],
+ ['img/methods/06.jpg','VTS priority index','Monitoring priority for intelligent traffic service'],
+ ['img/methods/07.jpg','Anchorage analytics','Occupancy forecasting and anchor-dragging risk'],
+ ['img/methods/08.jpg','Obstacle risk field','Collision and pollution risk of navigational obstacles'],
+ ['img/methods/09.jpg','Human–autonomy pipeline','Sensing → learning → reasoning → decision → human'],
+ ['img/methods/10.jpg','Research compass','Four research directions of the group'],
 ];
 /* ---------- helpers ---------- */
 const $=s=>document.querySelector(s);
@@ -735,22 +683,21 @@ $("#lbP").addEventListener("click",()=>{LBI=(LBI-1+LBSET.length)%LBSET.length;sh
 document.addEventListener("keydown",e=>{if(!$("#lb").classList.contains("open"))return;if(e.key==="Escape")closeLB();if(e.key==="ArrowLeft")$("#lbP").click();if(e.key==="ArrowRight")$("#lbN").click()});
 document.addEventListener("click",e=>{const el=e.target.closest("[data-lb]");if(!el)return;const grp=el.dataset.grp;if(grp){const els=[...document.querySelectorAll(`[data-grp="${grp}"]`)];openLB(els.map(x=>({src:x.dataset.lb,cap:x.dataset.cap})),els.indexOf(el))}else openLB([{src:el.dataset.lb,cap:el.dataset.cap}],0)});
 
-function fieldCard(f,i){return `<div class="fcard" data-lb="${FIELD_IMG[i]}" data-cap="${esc(f.t)}"><div class="imw"><img src="${FIELD_IMG[i]}" alt="" loading="lazy"></div><div class="txt"><div class="n">0${i+1}</div><h3>${esc(f.t)}</h3><p>${esc(f.d)}</p></div></div>`}
+function fieldCard(f,i){return `<div class="fcard" data-lb="${FIELD_IMG[i]}" data-cap="${esc(f.t)}"><img src="${FIELD_IMG[i]}" alt="" loading="lazy"><div class="ov"></div><div class="txt"><div class="n">0${i+1}</div><h3>${esc(f.t)}</h3><p>${esc(f.d)}</p></div></div>`}
 function renderHome(){
   const sc=INTL.filter(p=>p[3]==="SCIE").length;
   $("#stats").innerHTML=[[INTL.length,"International journals",`SCIE ${sc} · SCOPUS ${INTL.length-sc}`],[DOM.length,"Domestic journals","KCI"],[PROJECTS.length,"Research projects","2015 – present"],[AWARDS.length,"Awards","2014 – present"]].map(([n,l,s])=>`<div class="stat"><b>${n}<i>+</i></b><span>${l} · ${s}</span></div>`).join("");
   $("#fields").innerHTML=FIELDS.map(fieldCard).join("");$("#fields2").innerHTML=FIELDS.map(fieldCard).join("");
-  $("#latestNews").innerHTML=NEWS.slice(0,6).map((n,i)=>{const ph=(n._ph||[])[0];return `<a class="nitem" href="#news"><div class="th">${ph?`<img src="${ph.src}" alt="" loading="lazy">`:""}</div><div><div class="d">${n.d}</div><div class="t">${esc(n.t)}</div></div></a>`}).join("");
+  $("#latestNews").innerHTML=NEWS.slice(0,6).map((n,i)=>{const ph=(MEDIA.news[i]||[])[0];return `<a class="nitem" href="#news"><div class="th">${ph?`<img src="${ph.src}" alt="" loading="lazy">`:""}</div><div><div class="d">${n.d}</div><div class="t">${esc(n.t)}</div></div></a>`}).join("");
   $("#aboutKr").innerHTML=FIELDS.map(f=>`<li>${esc(f.t)}</li>`).join("");$("#aboutEn").innerHTML=$("#aboutKr").innerHTML;
 }
-const MPH={"Dr. Chan-Sub Lee":"people/chan%20sub%20lee.png","B.Sc. Dae-Jung Kim":"people/dae%20jung%20kim.jpg","B.Sc. Seong-Jae Yu":"people/Seong-Jae%20Yu.jpg","M.Sc. Jae-Yong Lee":"people/Jae%20yong%20lee.jpg"};
 function initials(en){return en.replace(/^(Prof\.|Dr\.|M\.Sc\.|B\.Sc\.)\s*/g,"").replace(/^Dr\.\s*/,"").split(/[\s-]+/).filter(Boolean).slice(0,2).map(p=>p[0]).join("").toUpperCase()}
 function renderPeople(){
   let html="";
   PEOPLE.forEach(g=>{
     html+=`<div class="group"><h2>${esc(g.g)}<span class="cnt">${esc(g.kr)} · ${g.m.length}</span></h2>`;
     if(g.lead){html+=`<div class="advisors">`+g.m.map(m=>`<div class="adv"><div class="ph"><img src="${PHOTOS[m.en]}" alt="${esc(m.kr)}" loading="lazy"></div><div class="b"><div class="role">${esc(m.role)}</div><div class="kr">${esc(m.kr)}</div><div class="en">${esc(m.en)}</div><dl>${m.f.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>${m.l?`<div class="links">${m.l.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join("")}</div>`:""}</div></div>`).join("")+`</div>`}
-    else{html+=`<div class="people">`+g.m.map(m=>`<div class="person"><div class="av">${MPH[m.en]?`<img src="${MPH[m.en]}" alt="${esc(m.kr)}" loading="lazy">`:initials(m.en)}</div><div><div class="role">${esc(m.role)}</div><div><span class="kr">${esc(m.kr)}</span><span class="en">${esc(m.en)}</span></div><dl>${m.f.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>${m.l?`<div class="links">${m.l.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join("")}</div>`:""}</div></div>`).join("")+`</div>`}
+    else{html+=`<div class="people">`+g.m.map(m=>`<div class="person"><div class="av">${initials(m.en)}</div><div><div class="role">${esc(m.role)}</div><div><span class="kr">${esc(m.kr)}</span><span class="en">${esc(m.en)}</span></div><dl>${m.f.map(([k,v])=>`<dt>${esc(k)}</dt><dd>${esc(v)}</dd>`).join("")}</dl>${m.l?`<div class="links">${m.l.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${n}</a>`).join("")}</div>`:""}</div></div>`).join("")+`</div>`}
     html+=`</div>`});
   $("#peopleRoot").innerHTML=html;
 }
@@ -765,27 +712,25 @@ function renderPubs(which){
   $("#pubTabs").innerHTML=PUBTABS.map(([id,l,n])=>`<button role="tab" data-tab="${id}" class="${id===which?"active":""}">${l} <span style="opacity:.7">${n}</span></button>`).join("");
   let html="";
   if(which==="intl")html=INTL.map((p,i)=>`<div class="pub"><span class="num">${INTL.length-i}</span><div><div class="t">${p[4]?`<a href="${p[4]}" target="_blank" rel="noopener">${esc(p[0])}</a>`:esc(p[0])}</div><div class="m"><span class="j">${esc(p[1])}</span><span>${p[2]}</span><span class="chip ${p[3]==="SCIE"?"cy":""}">${p[3]}</span>${p[4]?'<span class="chip">link ↗</span>':""}</div></div></div>`).join("");
-  else if(which==="dom")html=DOM.map((p,i)=>`<div class="pub"><span class="num">${DOM.length-i}</span><div><div class="t">${p[3]?`<a href="${p[3]}" target="_blank" rel="noopener">${esc(p[0])}</a>`:esc(p[0])}</div><div class="m"><span class="j">${esc(p[1])}</span><span>${p[2]}</span><span class="chip">KCI</span>${p[3]?'<span class="chip">link ↗</span>':""}</div></div></div>`).join("");
+  else if(which==="dom")html=DOM.map((p,i)=>`<div class="pub"><span class="num">${DOM.length-i}</span><div><div class="t">${esc(p[0])}</div><div class="m"><span class="j">${esc(p[1])}</span><span>${p[2]}</span><span class="chip">KCI</span></div></div></div>`).join("");
   else{const src={book:BOOKS,pat:PATENTS,prog:PROGRAMS}[which];html=`<ul class="plain">`+src.map(([t,y])=>`<li><span>${esc(t)}</span><span class="y">${esc(y)}</span></li>`).join("")+`</ul>`}
   $("#pubRoot").innerHTML=html;$("#pubTabs").querySelectorAll("button").forEach(b=>b.addEventListener("click",()=>renderPubs(b.dataset.tab)));
 }
 function renderAwards(){
   let year="",html="";
-  let __ak=0;AWARDS.forEach(([d,t,ex],i)=>{const y=d.slice(-4);if(y!==year){if(year)html+=`</div></div>`;year=y;html+=`<div class="ygroup"><h2>${y}</h2><div class="awards">`}
-    let ph,who;if(ex){ph=ex.ph;who=ex.who}else{ph=MEDIA.awards[__ak]||[];who=AWARD_WHO[__ak];__ak++}
+  AWARDS.forEach(([d,t],i)=>{const y=d.slice(-4);if(y!==year){if(year)html+=`</div></div>`;year=y;html+=`<div class="ygroup"><h2>${y}</h2><div class="awards">`}
+    const ph=MEDIA.awards[i]||[];const who=AWARD_WHO[i];
     html+=`<div class="award"><div class="ph">${ph.map((p,k)=>`<img src="${p.src}" alt="" loading="lazy" data-lb="${p.src}" data-cap="${esc(d)} · ${esc(t)}${who?" · "+who:""}" data-grp="aw${i}">`).join("")}</div><div class="b"><div class="d">${d}</div><div class="t">${esc(t)}</div>${who?`<div class="who">${who}</div>`:""}</div></div>`});
   html+=`</div></div>`;$("#awardRoot").innerHTML=html;
 }
 function renderNews(){
-  $("#newsRoot").innerHTML=NEWS.map((n,i)=>{const ph=n._ph||[];const cls=n.cover?"cover":ph.length===1?"one":ph.length===2?"two":"";
+  $("#newsRoot").innerHTML=NEWS.map((n,i)=>{const ph=MEDIA.news[i]||[];const cls=ph.length===1?"one":ph.length===2?"two":"";
     const bullets=n.b?`<ul>${n.b.map(x=>Array.isArray(x)?`<ul>${x.map(y=>`<li>${esc(y)}</li>`).join("")}</ul>`:`<li>${x}</li>`).join("")}</ul>`:"";
     const photos=ph.length?`<div class="photos ${cls}">${ph.map(p=>`<div class="p" data-lb="${p.src}" data-cap="${esc(n.d)} · ${esc(n.t)}" data-grp="nw${i}"><img src="${p.src}" alt="" loading="lazy"></div>`).join("")}</div>`:"";
     return `<div class="tl"><div class="when">${n.d}</div><div><h3>${esc(n.t)}</h3>${bullets}${photos}</div></div>`}).join("");
 }
 function show(id){if(!NAVI.some(n=>n[0]===id))id="home";document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id==="view-"+id));document.querySelectorAll("#nav a,#mnav a").forEach(a=>a.classList.toggle("active",a.dataset.id===id));$("#mnav").classList.remove("open");$("#menuBtn").setAttribute("aria-expanded","false");window.scrollTo(0,0);document.querySelectorAll(".view.active video").forEach(v=>v.play&&v.play().catch(()=>{}))}
 function route(){show(location.hash.replace("#","")||"home")}
-document.addEventListener("error",e=>{const t=e.target;if(!t||t.tagName!=="IMG")return;const box=t.closest(".photos .p");if(box){const g=box.parentElement;box.remove();const n=g.children.length;g.classList.remove("one","two");if(n===0)g.remove();else if(n===1)g.classList.add("one");else if(n===2)g.classList.add("two");return}if(t.closest(".brand"))return;const th=t.closest(".nitem .th,.award .ph");if(th&&th.classList.contains("th")){th.style.visibility="hidden";return}t.remove()},true);
-let __k=0;NEWS.forEach(n=>{n._ph=n.ph||MEDIA.news[__k++]||[]});
 renderNav();renderHome();renderPeople();renderResearch();renderPubs("intl");renderAwards();renderNews();
 $("#menuBtn").addEventListener("click",()=>{const o=$("#mnav").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",String(o))});
 $("#contactForm").addEventListener("submit",e=>{e.preventDefault();const ok=["cf-name","cf-email","cf-msg"].every(id=>$("#"+id).value.trim());const t=$("#cf-toast");t.hidden=false;t.textContent=ok?"Thank you. Sending is enabled once a form service (e.g. Formspree) is connected. For urgent enquiries please call +82-61-240-7193.":"Please fill in your name, email and comment."});
