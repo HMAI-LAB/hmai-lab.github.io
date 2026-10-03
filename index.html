@@ -442,13 +442,13 @@ footer .links a{color:rgba(255,255,255,.75)}
 
 <!-- PUBLICATIONS -->
 <section class="view" id="view-publications">
-  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Publications</div><h1 class="h1">Publications</h1><p class="lead">31 international journal papers (SCIE 24 · SCOPUS 7), 25 domestic journal papers (KCI), 4 textbooks, 7 patents and 1 registered program.</p></div>
+  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Publications</div><h1 class="h1">Publications</h1><p class="lead" id="pubLead">31 international journal papers (SCIE 24 · SCOPUS 7), 25 domestic journal papers (KCI), 4 textbooks, 7 patents and 1 registered program.</p></div>
   <div class="wrap sec" style="padding-top:36px"><div class="tabs" id="pubTabs" role="tablist"></div><div id="pubRoot"></div></div>
 </section>
 
 <!-- AWARDS -->
 <section class="view" id="view-awards">
-  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Award</div><h1 class="h1">Awards</h1><p class="lead">23 awards since 2014, including best paper and best presentation awards at domestic and international conferences and journal outstanding reviewer awards.</p></div>
+  <div class="wrap sec" style="padding-top:56px"><div class="eyebrow">Award</div><h1 class="h1">Awards</h1><p class="lead"><span id="awCount">24</span> awards since 2014, including best paper and best presentation awards at domestic and international conferences and journal outstanding reviewer awards.</p></div>
   <div class="wrap" id="awardRoot"></div>
 </section>
 
@@ -787,6 +787,7 @@ function show(id){if(!NAVI.some(n=>n[0]===id))id="home";document.querySelectorAl
 function route(){show(location.hash.replace("#","")||"home")}
 document.addEventListener("error",e=>{const t=e.target;if(!t||t.tagName!=="IMG")return;const box=t.closest(".photos .p");if(box){const g=box.parentElement;box.remove();const n=g.children.length;g.classList.remove("one","two");if(n===0)g.remove();else if(n===1)g.classList.add("one");else if(n===2)g.classList.add("two");return}if(t.closest(".brand"))return;const th=t.closest(".nitem .th,.award .ph");if(th&&th.classList.contains("th")){th.style.visibility="hidden";return}t.remove()},true);
 let __k=0;NEWS.forEach(n=>{n._ph=n.ph||MEDIA.news[__k++]||[]});
+$("#awCount").textContent=AWARDS.length;{const sc=INTL.filter(p=>p[3]==="SCIE").length;$("#pubLead").textContent=`${INTL.length} international journal papers (SCIE ${sc} · SCOPUS ${INTL.length-sc}), ${DOM.length} domestic journal papers (KCI), ${BOOKS.length} textbooks, ${PATENTS.length} patents and ${PROGRAMS.length} registered program${PROGRAMS.length>1?"s":""}.`}
 renderNav();renderHome();renderPeople();renderResearch();renderPubs("intl");renderAwards();renderNews();
 $("#menuBtn").addEventListener("click",()=>{const o=$("#mnav").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",String(o))});
 $("#contactForm").addEventListener("submit",e=>{e.preventDefault();const ok=["cf-name","cf-email","cf-msg"].every(id=>$("#"+id).value.trim());const t=$("#cf-toast");t.hidden=false;t.textContent=ok?"Thank you. Sending is enabled once a form service (e.g. Formspree) is connected. For urgent enquiries please call +82-61-240-7193.":"Please fill in your name, email and comment."});
