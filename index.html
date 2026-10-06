@@ -505,7 +505,7 @@ const PEOPLE=[
   {kr:"김 주 성",en:"Prof. Dr. Joo-Sung Kim",role:"Professor",f:[["Division","Division of Navigation Science"],["Tel","+82-61-240-7193"],["Office","Room #6413, No.2 Engineering Bldg."]],l:[["Google Scholar","https://scholar.google.com/citations?user=pt_sckoAAAAJ&hl=en"],["ResearchGate","https://www.researchgate.net/profile/Joo-Sung-Kim-6"],["SciProfiles","https://sciprofiles.com/profile/914647"]]},
   {kr:"이 진 석",en:"Prof. Dr. Jin-Suk Lee",role:"Professor",f:[["Division","Division of Navigation Science"],["Tel","+82-61-240-7158"],["Office","Room #6409, No.2 Engineering Bldg."]],l:[["ResearchGate","https://www.researchgate.net/profile/Jin-Suk-Lee-2"]]},
   {kr:"남 궁 호",en:"Prof. Dr. Ho Namgung",role:"Professor",f:[["Division","Department of Maritime Industry Convergence"],["Tel","+82-61-240-7162"],["Office","Room #2404, Maritime Science Bldg."]],l:[["Google Scholar","https://scholar.google.com/citations?hl=en&user=iJBdkmUAAAAJ"],["ResearchGate","https://www.researchgate.net/profile/Ho-Namgung"]]},
-  {kr:"장 다 운",en:"Prof. Dr. Daun Jang",role:"Professor",f:[["Division","Division of Cadet Training"],["Tel","+82-61-240-7445"],["Office","Room #2208, Maritime Science Bldg."]],l:[["ResearchGate","https://www.researchgate.net/profile/Jang-Daun"]]}
+  {kr:"장 다 운",en:"Prof. Dr. Daun Jang",role:"Professor",f:[["Division","Division of Cadet Training"],["Tel","+82-61-240-7445"],["Office","Room #2303, Maritime Science Bldg."]],l:[["ResearchGate","https://www.researchgate.net/profile/Jang-Daun"]]}
  ]},
  {g:"External Advisors",kr:"Industry",m:[
   {kr:"우 동 한",en:"Dr. Donghan Woo",role:"Senior Engineer",f:[["Position","Senior Engineer"],["Office","ABS Intelligent Systems Technology Center"]],l:[["Google Scholar","https://scholar.google.com/citations?user=jcaDSKAAAAAJ"],["ResearchGate","https://www.researchgate.net/profile/Donghan-Woo"]]}
@@ -791,7 +791,11 @@ let __k=0;NEWS.forEach(n=>{n._ph=n.ph||MEDIA.news[__k++]||[]});
 $("#awCount").textContent=AWARDS.length;{const sc=INTL.filter(p=>p[3]==="SCIE").length;$("#pubLead").textContent=`${INTL.length} international journal papers (SCIE ${sc} · SCOPUS ${INTL.length-sc}), ${DOM.length} domestic journal papers (KCI), ${BOOKS.length} textbooks, ${PATENTS.length} patents and ${PROGRAMS.length} registered program${PROGRAMS.length>1?"s":""}.`}
 renderNav();renderHome();renderPeople();renderResearch();renderPubs("intl");renderAwards();renderNews();
 $("#menuBtn").addEventListener("click",()=>{const o=$("#mnav").classList.toggle("open");$("#menuBtn").setAttribute("aria-expanded",String(o))});
-$("#contactForm").addEventListener("submit",e=>{e.preventDefault();const ok=["cf-name","cf-email","cf-msg"].every(id=>$("#"+id).value.trim());const t=$("#cf-toast");t.hidden=false;t.textContent=ok?"Thank you. Sending is enabled once a form service (e.g. Formspree) is connected. For urgent enquiries please call +82-61-240-7193.":"Please fill in your name, email and comment."});
+$("#contactForm").addEventListener("submit",e=>{e.preventDefault();const ok=["cf-name","cf-email","cf-msg"].every(id=>$("#"+id).value.trim());const t=$("#cf-toast");t.hidden=false;if(!ok){t.textContent="Please fill in your name, email and comment.";return}
+  const n=$("#cf-name").value.trim(),m=$("#cf-email").value.trim(),c=$("#cf-msg").value.trim();
+  const sub=encodeURIComponent(`[HMAI Homepage] Enquiry from ${n}`),body=encodeURIComponent(`Name: ${n}\nEmail: ${m}\n\n${c}`);
+  location.href=`mailto:jskim@mmu.ac.kr?subject=${sub}&body=${body}`;
+  t.innerHTML='Your email app should open with the message ready. Please press <b>Send</b> there. If nothing opens, email <a href="mailto:jskim@mmu.ac.kr">jskim@mmu.ac.kr</a> directly.'});
 window.addEventListener("hashchange",route);route();
 </script>
 </body>
